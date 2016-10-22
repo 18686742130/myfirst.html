@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<pre>
+<script>
+    var a,b, c,x;
+    x = prompt("请输出层数","5");
+    function xing(n) {
+        for (a = 1; a <= n; a++) {
+            for (b = 1; b <= n - a; b++) {
+                document.write(" ");
+            }
+            for (c = 1; c <= a; c++) {
+                document.write("*");
+                if (c > 0) {
+                    document.write(" ");
+                }
+            }
+            document.write("<br>");
+        }
+    }
+    xing(x);
+
+</script>
+</pre>
+</html>
