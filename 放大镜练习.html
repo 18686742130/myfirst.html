@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜练习</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        img{
+            border:0;
+        }
+        #small{
+            width: 497px;
+            height: 310px;
+            float:left;
+            position:relative;
+        }
+        #drag{
+            width: 100px;
+            height: 100px;
+            background: yellow;
+            position: absolute;
+            display:none;
+            top:0;
+            left: 0;
+            opacity:0.3;
+            filter: alpha(opacity=30);
+        }
+        #big{
+            width: 497px;
+            height: 310px;
+            overflow: hidden;
+            float:left;
+            display:none;
+            position: relative;
+        }
+        #bbb{
+            position: absolute;
+
+            top:0 ;
+            left : 0;
+        }
+        #mask{
+            position:absolute;
+            width: 497px;
+            height: 310px;
+            background-color: red;
+            opacity:0;
+            filter: alpha(opacity=0);
+            top:0;
+            left:0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+<div id="small">
+    <div id="mask"></div>
+    <div id="drag"></div>
+    <img src="img/small.png" />
+</div>
+
+<div id="big">
+    <img id="bbb" src="img/big.png" />
+</div>
+
+<script>
+    var oDrag = document.getElementById("drag");
+    var oBig  = document.getElementById("big");
+    var oSmall= document.getElementById("small");
+    var oMask = document.getElementById("mask");
+    var oBbb  = document.getElementById("bbb");
+
+
+    oMask.onmouseover = function () {
+        oDrag.style.display = "block";
+        oBig.style.display = "block";
+    };
+    oMask.onmousemove = function(e){
+        e = e || window.event;
+        var iLeft = e.clientX-oDrag.offsetWidth/2;
+        var iTop  = e.clientY-oDrag.offsetHeight/2;
+        oDrag.style.left = iLeft+"px";
+            if(oDrag.offsetLeft < 0){
+            oDrag.style.left = 0;
+            }
+            else if(oDrag.offsetLeft > oSmall.offsetWidth - oDrag.offsetWidth){
+            oDrag.style.left = oSmall.offsetWidth-oDrag.offsetWidth+"px";
+            }
+
+
+        oDrag.style.top = iTop+"px";
+            if(oDrag.offsetTop < 0){
+            oDrag.style.top = 0;
+            }
+            else if(oDrag.offsetTop > oSmall.offsetHeight - oDrag.offsetHeight){
+            oDrag.style.top = oSmall.offsetHeight - oDrag.offsetHeight+"px";
+            }
+
+        oBbb.style.left = -(oBbb.offsetWidth-oBig.offsetWidth)*oDrag.offsetLeft/(oSmall.offsetWidth-oDrag.offsetWidth)+"px";
+        oBbb.style.top  = -(oBbb.offsetHeight-oBig.offsetHeight)*oDrag.offsetTop/(oSmall.offsetHeight-oDrag.offsetHeight)+"px";
+                //滑头鬼之孙
+    };
+    oMask.onmouseout = function (){
+        oDrag.style.display = "none";
+        oBig.style.display = "none";
+    };
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+

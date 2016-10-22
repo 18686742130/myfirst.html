@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>课堂笔记</title>
 </head>
 <body>
 <pre>
@@ -30,8 +30,8 @@ CSS：
             background: #ff0000;
             list-style: none;
         }
-        li{
-            background: #00ff00;
+        a{
+            text-decoration:none;
         }
     背景颜色：background-color:000000;
     塌陷问题：
@@ -41,8 +41,8 @@ CSS：
         不可层叠（父元素）-- position: relative;      相对定位
         可层叠--position: absolute;      绝对定位
         定位后在子元素中：  top: 0;
-                                   left: 0;
-        只有定位的元素才能设置自己的位置（浮动的元素需要定位）
+                            left: 0;
+        只有定位的元素才能设置自己的位置
     透明度：
         opacity：（0-1）；  0-透明  1-100%
         为了解决兼容性问题
@@ -51,6 +51,11 @@ CSS：
 
     块元素居中--margin:xx px auto;  xx是数值 块上方外边距
     光标变成小手--cursor:pointer;       鼠标移入时变成小手
+    border-height:1px solid #000;     上边线像素为1 颜色为黑
+    #p:hover{
+            background:#000;
+        }                            //当鼠标滑入时触发{}内的属性--伪类
+    文本缩进：text-indent:10px;  文本向右缩进10个像素
 
 
 
@@ -61,26 +66,58 @@ JS：
     鼠标移动：onmousemove
     鼠标松开：onmouseup
     鼠标移入：onmouseover
-    鼠标移出:onmouseout
+    鼠标移出: onmouseout
     块的宽度：offsetWidth
     块的高度：offsetWeight
+    定时器：
+        --1.setInterval(function(){
+                事件
+        },1000);
+        //每隔1000ms触发一次事件
+        --2.setTimeout(function(){
+                事件
+        },1000);
+        //进入页面后等待1000ms，然后执行一次事件，随后结束。
+        定时器会产生返回值，想终止定时器可用：
+        clearInterval(timer);
+        例子:   var timer = setInterval(function(){
+                    oNext.onclick();
+                }, 500);
+                oContainer.onmouseover = function(){
+                    clearInterval(timer);                  //此处终止返回值，即定时器停止其中的事件
+                };
+
+    输出函数类型：console.log(typeof变量)  --输出变量的类型
+
 
 
 
 
     事件冒泡：
-        浏览器是默认事件冒泡的
+        浏览器是默认事件冒泡的           //在放大镜1.MP4视频中有详细介绍
         阻止事件冒泡方法可查阅JS手册
     绑定事件的方法：
     事件捕获：
         先捕获再冒泡
+    条件运算符"？："     例如 var A = x>y?x:y     如果x>y为真,则将x赋值给A，如果为假则将y赋值给A
+
+    var today = new Date();   //获取当天日期
+    var year = today.getFullYear();   //获取当天年份
+
+    parseInt        强制转型           例如:console(parseInt(a));   12.66会输出12  舍弃小数点后面的
+                                            console(parseInt('a',16)) 将a改成16进制  并输出成10进制
+
 
 
 
 
 
     疑问：index怎么用 什么意思
-    为什么i=4  在轮播图中
+
+
+    自定义滚动条 文字还是会被拉篮
+    无缝滑动再IE11出现文字错位
+    在函数中再加例如if或者for带上“{}”就会失效？
 
 
 

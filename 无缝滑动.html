@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>无缝滑动</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        a{
+            text-decoration:none;
+        }
+        #kuang{
+            width: 600px;
+            height: 400px;
+            border: 1px solid #000000;
+            margin: 200px auto;
+            position: relative;
+            /*overflow: hidden;*/
+            overflow:hidden;
+        }
+        #zi{
+            position: absolute;
+            width: 600px;
+            height: 300px;
+            top: 0;
+            left:0;
+            /*overflow: hidden;*/
+        }
+        #lie li{
+            float: left;
+            width: 160px;
+            height: 300px;
+            background-color: #00ffff;
+            color:#ffffff;
+            text-align:center;
+            line-height: 300px;
+            font-size:1000%;
+            margin-right: 40px;
+            
+        }
+        #btn{
+            position:absolute;
+            bottom: 40px;
+            right: 175px;
+
+        }
+        #btn span{
+            background-color: yellow;
+
+            float: left;
+            margin-left:150px;
+            width: 50px;
+            height: 20px;
+            text-align: center;
+        }
+        #lie{
+            width:1600px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="kuang">
+    <div id="zi">
+        <ul id="lie">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <div id="btn">
+        <span id="zuo">&lt&lt左移</span>
+        <span id="you">右移&gt&gt</span>
+    </div>
+</div>
+<script>
+
+    var oZuo = document.getElementById("zuo");
+    var oYou = document.getElementById("you");
+    var oZi  = document.getElementById("zi");
+    var aLi  = oZi.getElementsByTagName("li");
+    var oLie = document.getElementById("lie");
+    var speed  = -2 ;
+
+    run (speed);
+
+    var timer;
+
+    oZuo.onmouseover = function(){
+        speed = -2;
+        clearInterval(timer);
+        run (speed);
+    };
+    oYou.onmouseover = function(){
+        clearInterval(timer);
+        speed = 2;
+        run (speed);
+    };
+
+
+
+    function run (speed){
+        timer = setInterval(function(){
+            oZi.style.left = oZi.offsetLeft+speed+"px";
+            if(oZi.offsetLeft < -oLie.offsetWidth/2){
+//                console.log(1);
+                oZi.style.left = 0;
+            }
+                else if(oZi.offsetLeft  > 0 ){
+                oZi.style.left = -800+"px";
+    }
+        },10)
+
+    }
+
+
+
+
+//    oZuo.onmouseover = function()
+//    {
+//        speed  = -2;
+//        setInterval(function () {
+//            oZi.style.left = oZi.offsetLeft + speed + "px";
+//            if (oZi.offsetLeft == -oLie.offsetWidth / 2) {
+//                oZi.style.left = 0;
+//            }
+//        }, 20);
+//        };
+//
+//    oYou.onmouseover = function()
+//    {
+//        speed = 2;
+//        setInterval(function () {
+//            oZi.style.left = oZi.offsetLeft + speed+ "px";
+//            if (oZi.offsetLeft  >= 0  ) {
+//                oZi.style.left = -800+"px";
+//            }
+//        }, 20);
+//
+//    };
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
