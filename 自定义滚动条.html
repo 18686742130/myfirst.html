@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>自定义滚动条</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        #all{
+            width:400px;
+            height: 500px;
+            background-color: #eeeeee;
+            position:relative;
+            overflow:hidden;
+        }
+        #txt{
+            width: 380px;
+            /*height: 800px;*/
+            background-color: #cccccc;
+            /*float:left;*/
+            position:absolute;
+            top:0;
+            left:0;
+            /*overflow:hidden;*/
+        }
+        #long{
+            position:absolute;
+            width: 20px;
+            height: 500px;
+            background-color: #eeeeee;
+            top:0;
+            right:0;
+        }
+        #btn{
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            /*float:left;*/
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+        <div id="txt">
+            秋天，带着丝丝细雨缓缓走来。清浅的微风轻轻拂过脸颊，水面上激起层层涟漪。时间在指缝中缓缓溜走，我们每个人都是人生中的旅人，每个人都是人生中的过客。
+            有人说这十丈红尘就像是一座庙，我们就是那修行的僧。人生就像一场修行，路上我们风雨兼程，一路播种，一路前行，也许是快乐，也许是苦涩。不管怎样，只要我们播撒阳光，心中常存一份仁爱之心，心也会变得简单快乐。
+            有些人，因为陌生才走到一起，因为熟悉才会彼此分开。若，彼此懂得，请相互珍惜吧，用包容的心相互怜惜，就此走过岁岁年年。一份悦意在眉眼之间，一份悦意在执手之间。若相爱，请让这份爱充满阳光。若深爱，请让这份爱不染纤尘。
+            秋意漫卷残香来，清风徐送蓬门开。一份情始于相互欣赏，一份爱缘于相互成全，爱是两颗灵魂的碰撞，情是天长日久的认可。秋风起了，捡一枚落叶入字，心思在瞬间变得澄明。今夜，用指尖的温柔拂过凌乱的墨香。今夜，在星月间寻找你熟悉的眉眼。
+            “因为爱过，所以慈悲。因为懂得，所以宽容。”懂得这句话也就真正的懂得了人生。时光无言，人生路上所有的辗转，在此刻有了更深的体会。秋风习习，吹拂着夕阳的几许余韵，寂静清幽虽残不落，在这个暗香浮动的清秋，从此不言心殇。
+            流年似水，走着走着一不小心就白了头。黄昏像一坛陈年的佳酿，香醇益远品之即醉。黄昏犹如一曲浩渺的箫音，悠远清雅听之陶然。黄昏像飘零的落叶，述说着我对你无尽的牵念与挂怀。
+            这就是自然的美，无需喧嚣，在静谧里品味纯净的美丽。无需多言，用心聆听岁月的低语。无论是感动的、还是淡然的，都是人生中最美的风景。当我们对自然倾注深情时，相信我们已经不再年轻，意味着我们走过了一段长长的人生。倾听自己内心的声音，做最精彩的自己，做自己想做的事，爱自己想爱的人，这就是人生里最后的任性。
+            人的一生，总会遇到一个人，让你只想牵着他的手慢慢地变老。只是这世间有太多的沧海桑田，有太多的不确定，只怕一份等待最终变成一份蹉跎。我怕等到最后，夜风会把曾经的一幕幕吹的支离破碎，再也无处寻觅。
+            经历过人生的缘聚缘散、缘起缘落，品尝过世事沧桑人海沉浮，心中难免留下几许暗伤。那些，偶尔划过心间的眷恋，是你给我的最美时光。我在红尘深处端坐如莲，守着平淡的年华，静静的看着日升月落。席慕蓉曾经说过：“有情未必终老，暗香浮动就好。”若果真无缘，自当放下，在云淡风轻后，留一份记忆在心间。
+        </div>
+        <div id="long">
+            <div id="btn"></div>
+        </div>
+    </div>
+    <script>
+        var oAll = document.getElementById("all");
+        var oTxt = document.getElementById("txt");
+        var oLong = document.getElementById("long");
+        var oBtn = document.getElementById("btn");
+
+        oBtn.onmousedown = function(e){
+
+            e = e || window.event;
+
+            var cha = e.clientY-oBtn.offsetTop;
+
+            document.onmousemove = function(e){
+                e = e || window.event;
+                var top = e.clientY-cha;
+
+                if(top<0){
+                    top = 0;
+                }
+
+                if(top>oLong.offsetHeight-oBtn.offsetHeight){
+                    top = oLong.offsetHeight-oBtn.offsetHeight;
+                }
+
+                oBtn.style.top = top +"px";
+
+                var obili = top/(oLong.offsetHeight-oBtn.offsetHeight);
+
+                oTxt.style.top = -(oTxt.offsetHeight-oAll.offsetHeight)*obili+"px";
+
+                return false;                //文字还是被拉蓝
+            };
+            document.onmouseup = function() {
+                document.onmousemove = null;
+            }
+        }
+    </script>
+</body>
+</html>
