@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="d"><img id="pic" src="1.jpg" /></div>
+
+
+<script>
+    var oD = document.getElementById("d");
+    var oPic = document.getElementById("pic");
+    var a=1;
+    oD.onclick = function(){
+        if(a==1) {
+            oPic.src="2.jpg";
+            a=2;
+        }
+        else if(a==2){
+            oPic.src="1.jpg";
+            a=1;
+        }
+
+    }
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

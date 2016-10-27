@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="a"></div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $("#a").on("click", function () {
+        $("#a").animate({
+            width:"400px"
+        },2000);
+        $("#a").animate({
+            height:"400px"
+        },2000);
+        $("#a").animate({
+            height:"800px"
+        },2000);
+        $("#a").stop(true,true);   // 第一个影响后续动画，第二个影响第一个动画  false,false第一个不执行，执行后续;
+        // true,false,全部不执行 ;true,true第一个立即执行，第二个不执行  ;false,true第一个立即执行（无动画效果），在执行第二个
+    })
+</script>
+</body>
+</html>

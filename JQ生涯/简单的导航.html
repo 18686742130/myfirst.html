@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            width: 100px;
+            text-align: left;
+            float: left;
+            background-color: #eeeeee;
+        }
+        a{
+            background: #00ffff;
+            float: left;
+            text-align: center;
+            width: 100px;
+            height: 25px;
+            text-decoration: none;
+            background-image: url("down.gif");
+            background-repeat:no-repeat;
+            background-position:3px center;
+        }
+        #d1 ul li ul{
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+<div id="d1">
+    <ul>
+        <li class="l1">
+            <a href="">one</a>
+            <ul>
+            <li>大</li>
+            <li>白</li>
+            <li>痴</li>
+        </ul>
+        </li>
+        <li>
+            <a href="">two</a>
+        <ul>
+            <li>说</li>
+            <li>的</li>
+            <li>就</li>
+        </ul>
+        </li>
+        <li>
+            <a href="">three</a>
+        <ul>
+            <li>是</li>
+            <li>你</li>
+            <li>笨</li>
+        </ul>
+        </li>
+    </ul>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+//        $("a").siblings().hide();
+        $("a").on("mouseover",function () {
+            $(this).siblings().slideDown();
+            $(this).css("background-image","url('up.gif')")
+        });
+        $("a").on("mouseout",function () {
+            $(this).siblings().slideUp();
+            $(this).css("background-image","url('down.gif')");  //小问题 shu鼠标移动到子菜单怎么让子菜单不消失
+        });
+    })
+
+
+</script>
+
+</body>
+</html>

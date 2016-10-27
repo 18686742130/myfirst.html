@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        ul{
+            list-style: none;
+            height: 40px;
+            background-color: #00ffff;
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            float: left;
+            margin-right: 60px;
+            line-height: 40px;
+            text-align: center;
+            background-color: yellow;
+            width: 50px;
+            color: blue;
+        }
+        #d1{
+            width: 400px;
+            height: 300px;
+
+            margin: 200px auto;
+
+        }
+        #d1 div{
+            width: 400px;
+            height: 260px;
+            background-color: red;
+            display: none;
+        }
+        .bian{
+            background-color: #eeeeee;
+        }
+        #d1 div.asd{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="d1">
+    <ul>
+        <li class="bian">111</li>
+        <li>222</li>
+        <li>333</li>
+    </ul>
+    <div class="asd">11111111111</div>
+    <div>22222222222</div>
+    <div>33333333333</div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    $(function(){
+        var $li = $("li").on("click", function () {
+
+                $(this).addClass("bian").siblings().removeClass("bian");
+                $("#d1 div").eq($(this).index()).addClass("asd").siblings().removeClass("asd");
+
+        })
+
+
+    })
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        img{
+            display: none;
+        }
+        .wx{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<form action="">
+    <!--<textarea name="" id="tx" cols="60" rows="1"></textarea>-->
+    <input  type="text"   id="tx"/>
+    <select name="" id="xl">
+        <option value="1.jpg">图片1</option>
+        <option value="2.jpg">图片2</option>
+        <option value="3.jpg">图片3</option>
+    </select>
+</form>
+<div id="pic">
+    <img class="wx" src="1.jpg" alt=""/>
+    <img  src="2.jpg" alt=""/>
+    <img  src="3.jpg" alt=""/>
+</div>
+<script>
+    var oXl = document.getElementById("xl");
+    var oPic = document.getElementById("pic");
+    var aImg = oPic.getElementsByTagName("img");
+    var aOp = oXl.getElementsByTagName("option");
+    console.log(oXl.selectedIndex+1);
+    oXl.onchange = function () {
+        for(i=0;i<3;i++){
+            aImg[i].className="";
+            if(aOp[i].selected) {
+                aImg[i].className="wx";
+//                document.getElementById("tx").innerHTML=aImg[i].src;
+                document.getElementById("tx").value=oXl.value;
+
+            }
+        }
+    }
+
+
+
+</script>
+
+</body>
+</html>

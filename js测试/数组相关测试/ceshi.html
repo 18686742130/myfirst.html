@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    </style>
+</head>
+<body id="b">
+
+<!--<input name="password" type="button" onclick="compute('-')" value="+">-->
+<!--<div id="a" style="display: block;">-->
+    <!--<p>qqqq</p>-->
+
+
+
+
+<form name="myForm">
+    <input type=text name="first" value="40">
+    <input type=text name="second" value="30">
+    <input type=text name="third" value="70">
+    <input type=button value="add" onclick=add()>
+</form>
+
+</div>
+<script>
+//    function compute(op){
+//        alert(op);
+//    }
+//document.getElementByTagName("div")[0].style.display="block"
+//document.getElementByName("a")[0].style.display="block";
+
+// document.getElementById("a").innerHTML
+//var a=[];var b=/ /;
+//function replaceStr(inStr, oldStr, newStr){
+//    var rep = inStr;
+//    while (rep.indexOf(oldStr) > -1)   {
+//        rep = rep.replace(oldStr, newStr);
+//    }
+//    return rep;
+//}
+//alert(replaceStr("how do you do","do","are"));
+
+//var x,y=null;
+//alert(x) ;
+//alert(y) ;
+//alert(x=y);
+//alert(x==y);
+
+//x="a";
+//y="b";
+//z=false;
+//function testOne(){
+//    var x="c";
+//    var y="d";
+//    z=true;
+//    alert(x);
+//    alert(y);
+//    alert(z);
+//}
+//function testTwo(){
+//    alert(x);
+//    alert(y);
+//    alert(z);
+//}
+//testOne();
+//testTwo();
+
+function add(){
+    var   first=document.myForm.first.value ;
+    var second=parseInt(document.myForm.second.value);
+    var third= parseInt(document.myForm.third.value);
+    alert(first+second+third);
+}
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>

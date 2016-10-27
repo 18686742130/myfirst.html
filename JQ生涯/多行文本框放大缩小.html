@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width: 400px;
+            height: 400px;
+            margin: 200px auto;
+        }
+        #text{
+            width: 200px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div>
+<input type="button" id="big" value="放大"/>
+<input type="button" id="small" value="缩小"/><br/>
+<textarea name="" id="text" ></textarea>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("#big").on("click", function () {
+            $("#text").animate({
+                height:"+=100"
+            });
+        });
+        $("#small").on("click", function () {
+            $("#text").animate({
+                height:"-=100"
+            });
+        });
+    })
+
+
+
+</script>
+
+
+
+</body>
+</html>

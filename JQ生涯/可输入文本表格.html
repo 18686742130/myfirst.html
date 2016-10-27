@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border-collapse:collapse;
+        }
+        td{
+            width: 120px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+<table border="1">
+    <tr><th colspan="2">鼠标点击可以编辑</th></tr>
+    <tr><td>学号</td><td>姓名</td></tr>
+    <tr><td>1</td><td class="bj">张三</td></tr>
+    <tr><td>2</td><td class="bj">李四</td></tr>
+    <tr><td>3</td><td class="bj">王二麻子</td></tr>
+    <tr><td>4</td><td class="bj">张晓亭</td></tr>
+</table>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $(".bj").on("click", function () {
+            var $input=$('<input type="text"/>');
+            $input.val($(this).text());
+            $(this).text("").append($input);
+            $input[0].focus();
+
+//            $(this).text("");
+
+//            $(this).text("$(this).children('input').val()");
+//            if($(this).text()=="") {
+//            else{
+//                    $(this).text="";
+//                    $(this).append('<input type="text" class="xr"/>');
+//
+//            }
+
+            })
+        });
+
+
+
+
+
+</script>
+</body>
+</html>

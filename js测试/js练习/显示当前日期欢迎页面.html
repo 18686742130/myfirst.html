@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    设计一个页面，在页面上显示信息“现在是XXXX年XX月XX日Xx点XX分XX秒（星期X)，欢迎您的到访！“。
+
+
+var now = new Date(),a;
+a = now.getFullYear()+"年"+
+        now.getMonth()+"月"+
+        now.getDate()+"日"+
+        now.getHours()+"点"+
+        now.getMinutes()+"分"+
+        now.getSeconds()+"秒"+
+        "星期"+now.getDay();
+document.write("现在是"+a+"，欢乐您的到访！");
+
+
+
+</script>
+</body>
+</html>

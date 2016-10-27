@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<form action="">
+<input type="checkbox"/>男性
+<input type="checkbox"/>女性
+<input type="checkbox"/>中性
+<input type="checkbox"/>秀吉<br/>
+    <input id="all" type="button" value="全选"/>
+    <input id="notall" type="button" value="全不选"/>
+    <input id="fan" type="button" value="反选"/>
+</form>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    
+    $(function(){
+        $("#all").on("click", function () {
+            $("input[type='checkbox']").prop("checked",true);
+        });
+        $("#notall").on("click", function () {
+            $("input[type='checkbox']").prop("checked",false);
+        });
+        $("#fan").on("click", function () {
+            $("input[type='checkbox']").each(function(index,elem){
+                this.checked = !this.checked;
+            });
+        });
+    })
+
+
+</script>
+
+
+
+</body>
+</html>

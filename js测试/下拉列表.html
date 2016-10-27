@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--改变下拉列表框的值时能显示当前选项的文本和值-->
+<form action="" id="k">
+<select id="xl">
+    <option value="apple" >apple111</option>
+    <option value="coffee">coffee222</option>
+    <option value="cake">cake333</option>
+    <option value="drink">drink444</option>
+</select>
+    <textarea id="text" cols="30" rows="1"></textarea>
+</form>
+<script>
+    var oK=document.getElementById("k");
+    var aOp=oK.getElementsByTagName("option");
+    var oXl=document.getElementById("xl");
+
+    document.getElementById("text").innerHTML=oXl.options[oXl.selectedIndex].text+"&nbsp"+oXl.value;
+
+    oXl.onchange=function(){
+        document.getElementById("text").innerHTML=oXl.options[oXl.selectedIndex].text+"&nbsp"+oXl.value;
+
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!DOCTYPE html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        th{
+            width: 120px;
+            text-align: left;
+            border-bottom: 1px solid black;
+        }
+        table{
+            border: 0;
+            border-collapse:collapse;
+        }
+        .even{
+            background-color: #00ff00;
+        }
+        .odd{
+            background-color: #eeeeee;
+        }
+        .jl{
+            background: #00ffff;
+            color: red;
+        }
+    </style>
+</head>
+<>
+<table>
+    <thead>
+    <tr><th>姓名</th><th>性别</th><th>学号</th></tr>
+    </thead>
+    <tbody>
+    <tr><td><input type="radio" name="name"/></td><td>张三</td><td>男</td><td>12345<td></tr>
+    <tr><td><input type="radio" name="name"/></td><td>李四</td><td>男</td><td>12345<td></tr>
+    <tr><td><input type="radio" name="name"/></td><td>王二麻子</td><td>男</td><td>12345<td></tr>
+    <tr><td><input type="radio" name="name"/></td><td>张晓亭</td><td>女</td><td>12345<td></tr>
+    <tr><td><input type="radio" name="name"/></td><td>任东旭</td><td>男</td><td>12345<td></tr>
+    <tr><td><input type="radio" name="name"/></td><td>魏明旭</td><td>男</td><td>12345<td></tr>
+    <tr><td><input type="radio" name="name"/></td><td>曹子康</td><td>男</td><td>12345<td></tr>
+    </tbody>
+</table>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+
+        $(function () {
+            $("tbody tr:even").addClass("even");
+            $("tbody tr:odd").addClass("odd");
+            $("tbody tr").on("click", function () {
+                $("tbody tr").removeClass("jl");
+                $(this).addClass("jl").find(":radio").prop("checked",true);
+
+            })
+        });
+    </script>
+</body>
+</html>

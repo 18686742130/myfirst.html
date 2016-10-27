@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="a"></p>
+<script>
+
+
+    setInterval(function(){
+        var date=new Date();
+        var year=date.getFullYear();
+        var month=date.getMonth()+1;
+        var days=date.getDate();
+        var hours=date.getHours();
+        var minutes=date.getMinutes();
+        var seconds=date.getSeconds();
+        var xingqi=date.getDay();
+       document.getElementById("a").innerHTML=("现在是"+year+"年"+month+"月"+days+"日"+hours+"点"+minutes+"分"+seconds+"秒,(星期"+xingqi+"),欢迎您的到访！")
+    },1000)
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

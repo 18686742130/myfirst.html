@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+    #name{
+        /*border: 1px solid blue;*/
+        /*background-color: yellow;*/
+    }
+    .change{
+        border: 2px solid blue;
+        background-color: #00ffff;
+    }
+
+
+    </style>
+</head>
+<body>
+<fieldset>
+    <legend>个人基本信息</legend>
+    <label for="name">名称:</label> <input id="name" type="text" value="请输入名称"/><br/>
+    <label for="key">密码:</label> <input id="key" type="password" /><br/>
+    详细信息: <textarea name="" id="more" cols="30" rows="4" >请输入详细信息</textarea>
+
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        $("#name").focus(function () {
+            if(this.value=="请输入名称") $("#name").addClass("change").val("");
+            $("#name").addClass("change");
+        });
+        $("#name").blur(function () {
+            if($("#name").val()=="") $("#name").val("请输入名称");
+            $("#name").removeClass("change")
+        });
+        $("#key").focus(function () {
+            $("#key").addClass("change");
+        });
+        $("#key").blur(function () {
+            $("#key").removeClass("change")
+        });
+        $("#more").focus(function () {
+            if(this.value=="请输入详细信息") $("#more").addClass("change").val("");
+            $("#more").addClass("change");
+        });
+        $("#more").blur(function () {
+            if($("#more").val()=="") $("#more").val("请输入详细信息");
+            $("#more").removeClass("change");
+        });
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+</fieldset>
+
+
+
+
+
+</body>
+</html>

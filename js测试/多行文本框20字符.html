@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!--在下面的HTML文档中，编写函数test() ,实现如下功能：-->
+<!--（1）当多行文本框（textarea）中的字符数超过20个，截取至20个-->
+<!--（2）在id为number的td中（第一行第二列）显示文本框的字符个数-->
+<form action="">
+    <textarea name="" id="tx" cols="30" rows="10" wrap="soft"></textarea>
+
+    <input type="text" id="text"/>
+    
+</form>
+
+<script>
+    var oTx = document.getElementById("tx");
+
+    oTx.onkeyup = function(){
+        if(oTx.value.length>20){
+            oTx.value = oTx.value.substring(0,20);
+        }
+        document.getElementById("text").value = oTx.value.length;
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>
