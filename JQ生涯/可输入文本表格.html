@@ -12,10 +12,13 @@
             border-collapse:collapse;
         }
         td{
-            width: 120px;
+            width: 150px;
             height: 20px;
         }
-
+        input{
+            width: 150px;
+            background-color: #00ffff;
+        }
     </style>
 </head>
 <body>
@@ -29,30 +32,46 @@
 </table>
 <script src="jquery-1.12.4.js"></script>
 <script>
+//    $(function () {
+//        $(".bj").on("click", function () {
+//            var $input=$('<input type="text" class="t1"/>');
+//            $input.val($(this).text());
+//            if($(".bj").children().hasClass("t1")){
+//                return false;
+//            }
+//            $(this).text("").append($input);
+//            $input[0].focus();
+//            var $name=$(this);
+//            $input.on("keypress", function () {
+//                if(event.keyCode=="13"){
+//                $name.text(""+$input.val()+"");
+//                }
+//            });
+//            $input.on("blur", function () {
+//                $name.text($input.val());
+//            });
+//        });
+//    });
     $(function () {
         $(".bj").on("click", function () {
-            var $input=$('<input type="text"/>');
+            var $input=$('<input type="text" class="t1" />');
+            var $this=$(this);
             $input.val($(this).text());
-            $(this).text("").append($input);
-            $input[0].focus();
-
-//            $(this).text("");
-
-//            $(this).text("$(this).children('input').val()");
-//            if($(this).text()=="") {
-//            else{
-//                    $(this).text="";
-//                    $(this).append('<input type="text" class="xr"/>');
-//
-//            }
-
+            if($(".bj").children().hasClass("t1")){
+                return false;
+            }
+            $this.text("").append($input);
+            $input.trigger("focus");
+            $input.on("keypress", function () {
+                if(event.keyCode==13){
+                    $this.text($input.val());
+                }
+            });
+            $input.on("blur", function () {
+                    $this.text($input.val());
             })
-        });
-
-
-
-
-
+        })
+    })
 </script>
 </body>
 </html>

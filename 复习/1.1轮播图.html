@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #body{
+            width: 680px;
+            height: 344px;
+            overflow: hidden;
+            margin: 200px auto;
+            position: relative;
+            display: block;
+        }
+        #ul{
+            position: absolute;
+            bottom: 10px;
+            right: 5px;
+        }
+        li{
+            float: left;
+            width: 20px;
+            height: 20px;
+            background-color: #000000;
+            opacity: 0.3;
+            color: #ffffff;
+            text-align: center;
+            line-height: 20px;
+            margin-right: 3px;
+            cursor: pointer;
+        }
+        #span{
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            width: 50px;
+        }
+        span{
+            width: 20px;
+            height: 20px;
+            float: left;
+            background-color: #000000;
+            opacity: 0.3;
+            color: #ffffff;
+            text-align: center;
+            margin-right: 5px;
+            cursor: pointer;
+        }
+        .change{
+            background-color: yellow;
+            color: #00ffff;
+            opacity: 0.8;
+        }
+        #img img{
+            position: absolute;
+            left: 0;
+            top: 0;
+            /*display: none;*/
+            /*opacity: 0;*/
+        }
+        #img .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="body">
+    <div id="img">
+        <img style="z-index: 4" class="show" src="1.jpg" alt=""/>
+        <img style="z-index: 3" src="2.jpg" alt=""/>
+        <img style="z-index: 2" src="3.jpg" alt=""/>
+        <img style="z-index: 1" src="4.jpg" alt=""/>
+    </div>
+    <div id="ul" style="z-index: 99999">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    </div>
+    <div id="span" style="z-index: 99999">
+        <span id="spanleft">&lt</span>
+        <span id="spanright">&gt</span>
+    </div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    // 切换效果
+
+//    var $index =0;
+//    $(function(){
+//        $("li").on("click", function () {
+//            $(this).addClass("change").siblings().removeClass("change");
+//            $("img").eq($(this).index()).addClass("show").siblings().removeClass("show");
+//            $index=parseInt($(this).index());
+//        });
+//        $("#spanleft").on("click", function () {
+//            $index--;
+//            if($index<0) $index=3;
+//            $("li").eq($index).addClass("change").siblings().removeClass("change");
+//            $("img").eq($index).addClass("show").siblings().removeClass("show");
+//        });
+//        $("#spanright").on("click", function () {
+//            $index++;
+//            if($index>3) $index=0;
+//            $("li").eq($index).addClass("change").siblings().removeClass("change");
+//            $("img").eq($index).addClass("show").siblings().removeClass("show");
+//        });
+//        var timer=setInterval(function () {
+//            $("#spanright").trigger("click");
+//        },500);
+//        $("#img").hover(function () {                      //为什么以#body为目标不好使？是因为定位么？
+//            clearInterval(timer);
+//        }, function () {
+//            timer=setInterval(function () {
+//                $("#spanright").trigger("click");
+//            },500);
+//        });
+//    });
+
+    //淡入淡出
+    var $index = 0;var a=4;
+    $(function(){
+        $("li").on("click", function () {
+            a++;
+            $(this).addClass("change").siblings().removeClass("change");
+            $("img").eq($(this).index()).css("z-index",a).css("opacity",0).animate({
+                opacity:1
+            },800);
+            $index=parseInt($(this).index());
+        });
+        $("#spanleft").on("click", function () {
+            a++;
+            $index--;
+            if($index<0) $index=3;
+            $("li").eq($index).addClass("change").siblings().removeClass("change");
+            $("img").eq($index).css("z-index",a).css("opacity",0).animate({
+        opacity:1
+        },800);
+            });
+        $("#spanright").on("click", function () {
+            a++;
+            $index++;
+            if($index>3) $index=0;
+            $("li").eq($index).addClass("change").siblings().removeClass("change");
+            $("img").eq($index).css("z-index",a).css("opacity",0).animate({
+                opacity:1
+            },800);
+        });
+        var timer=setInterval(function () {
+            $("#spanright").trigger("click");
+        },1000);
+        $("#body").hover(function () {
+            clearInterval(timer);
+        }, function () {
+            timer=setInterval(function () {
+                $("#spanright").trigger("click");
+            },1000);
+        });
+    });
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

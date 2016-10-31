@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #fo{
+            width: 400px;
+            height: 400px;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+<body>
+<form action="" id="fo">
+    <input id="up" type="button" value="向上"/>
+    <input id="down" type="button" value="向下"/>
+    <br/>
+    <textarea name="" id="text" cols="30" rows="10">aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+    </textarea>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        setInterval(function () {
+                    console.log($("#text").scrollTop())
+        }
+
+        ,1000);
+
+        $(function () {
+            $("#down").on("click",function(){
+                if(!$("#text").is(":animated")){
+                $("#text").animate({
+                        scrollTop:"+=50px"
+            })
+                }
+            });
+            $("#up").on("click",function(){
+                if(!$("#text").is(":animated")){
+                    $("#text").animate({
+                        scrollTop:"-=50px"
+                    })
+                }
+            });
+        });
+
+
+
+
+    </script>
+
+</form>
+</body>
+</html>

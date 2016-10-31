@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+
+        }
+        a{
+            text-decoration: none;
+        }
+        #head{
+            width: 1254px;
+            height: 85px;
+            position: relative;
+            background: #eeeeee;
+            background-image: url("logo.gif");
+            background-repeat:no-repeat;
+            background-position:0 left;
+            margin-left: 100px;
+        }
+        input{
+            color: #dddddd;
+        }
+        #menu1 ul li{
+            float: left;
+            font-size: 20px;
+            text-align: center;
+            line-height: 30px;
+            width: 50px;
+            margin-left: 28px;
+        }
+        #menu1{
+            background-color: #708090;
+            width: 1254px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        #menu1 a{
+            color: #ffffff;
+        }
+        #fo1{
+            position: absolute;
+            top: 15px;
+            left: 300px;
+        }
+        #inputhead{
+            margin-right: 650px;
+        }
+        #menu1 .menuchild{
+            width: 360px;
+            border: 1px solid black;
+            background-color: #ffffff;
+            display: none;
+            position: absolute;
+            z-index: 2;
+            opacity: 0.9;
+        }
+        #menu1 .menuchild td a{
+            font-size: 15px;
+            text-align: center;
+            line-height: 20px;
+            color: #000000;
+        }
+        .xhx td{
+            border-bottom: 1px dashed #000000;
+        }
+        #menu1 .menuchild td{
+            width: 35px;
+        }
+        #menu1 .menuchild th{
+            width: 70px;;
+            font-size: 16px;
+            text-align: center;
+            line-height: 20px;
+        }
+        #bodychild{
+            width: 1454px;
+            height: 738px;
+        }
+        #menu2{
+            width: 180px;
+            height: 580px;
+            border: 1px solid black;
+            border-top: none;
+            margin:10px;
+            margin-left: 100px;
+            float: left;
+        }
+        h2{
+            background-color: #CCCCCC;
+            color: #ffffff;
+        }
+        h3{
+            border-bottom: 1px dashed #00ffff;
+            margin: 10px;
+        }
+        #menu2 ul li{
+            float: left;
+            width: 70px;
+            margin: 8px;
+        }
+        #body2{
+            width: 1060px;
+            height: 580px;
+            border: 1px solid #CCCCCC;
+            float: left;
+            margin-top:10px;
+        }
+        #big{
+            width: 400px;
+            height: 400px;
+            overflow: hidden;
+            display: none;
+            position: relative;
+            float: left;
+            z-index: 1;
+        }
+        #small{
+            width: 400px;
+            height: 400px;
+            float: left;
+            position: relative;
+        }
+        #drag{
+            width: 200px;
+            height: 200px;
+            background-color: #eeeeee;
+            position: absolute;
+            /*top: 0;*/
+            /*left: 0;*/
+            opacity: 0.3;
+            display: none;
+        }
+        #mask{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            width: 400px;
+            height: 400px;
+            background-color: #fff;
+            opacity: 0;
+        }
+        #bigimg{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #xinxi{
+            position: absolute;
+            float: left;
+            top: 100px;
+            left: 700px;
+            margin-left: 10px;
+        }
+        h4{
+            color: red;
+            margin-bottom: 15px;
+        }
+        #xinxi ul{
+            height: 45px;
+        }
+        #lanbai{
+            width: 30px;
+            height: 30px;
+            background: blue;
+            float: left;
+            margin-top: 5px;
+            border: 2px solid white;
+        }
+        #shenhong{
+            width: 30px;
+            height: 30px;
+            background: darkred;
+            float: left;
+            margin-left: 5px;
+            margin-top: 5px;
+            border: 2px solid white;
+        }
+        #lianghuang{
+            width: 30px;
+            height: 30px;
+            background: yellow;
+            float: left;
+            margin-left: 5px;
+            margin-top: 5px;
+            border: 2px solid white;
+        }
+        #xinxi .yangshi{
+            border: 2px solid #00ffff;
+        }
+        #xinxi span{
+            width: 30px;
+            height: 30px;
+            border: 1px solid #708090;
+            display: block;
+            float: left;
+            margin: 5px;
+            margin-left: 0;
+            text-align: center;
+            line-height: 30px;
+        }
+        #shuliang{
+            float: left;
+        }
+        select{
+            float: left;
+            margin-bottom: 5px;
+        }
+        #zongjia{
+            margin: 10px;
+            margin-left: 0;
+        }
+        #gouwuche{
+            margin: 20px;
+            margin-left: 0;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="head">
+        <form id="fo1" action="">
+            <input id="inputhead" type="text" value="请输入商品名称"/>
+            <input id="color1" type="checkbox" />
+            <input id="color2" type="checkbox"/>
+            <input id="color3" type="checkbox"/>
+            <input id="color4" type="checkbox"/>
+            <input id="color5" type="checkbox"/>
+            <input id="color6" type="checkbox"/>
+        </form>
+        <div id="menu1">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">男装</a>
+                    <div class="menuchild">
+                        <table>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td></tr>
+                            <tr class="xhx"><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td></tr>
+                            <tr><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                        </table>
+                    </div>
+                </li>
+                <li><a href="#">女装</a>
+                    <div class="menuchild">
+                        <table>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td></tr>
+                            <tr class="xhx"><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td></tr>
+                            <tr><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                        </table>
+                    </div>
+                </li>
+                <li><a href="#">鞋帽</a>
+                    <div class="menuchild">
+                        <table>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td></tr>
+                            <tr class="xhx"><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td></tr>
+                            <tr><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                        </table>
+                    </div>
+                </li>
+                <li><a href="#">配饰</a>
+                    <div class="menuchild">
+                        <table>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td></tr>
+                            <tr class="xhx"><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                            <tr><td></td><th>女装:</th><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td></tr>
+                            <tr><td></td><td></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td><a href="">阿德</a></td><td></td><td></td></tr>
+                        </table>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="bodychild">
+        <div id="menu2">
+        <h2>商城</h2>
+        <h3>推荐品牌</h3>
+            <ul>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+            </ul>
+        <h3>女装</h3>
+            <ul>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+            </ul>
+        <h3>女装</h3>
+            <ul>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+            </ul>
+        <h3>女装</h3>
+            <ul>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+                <li><a href="">耐克</a></li>
+            </ul>
+        </div>
+        <div id="body2">
+            <div id="small">
+                <div id="mask"></div>
+                <div id="drag"></div>
+                <img src="small.jpg" alt=""/>
+            </div>
+            <div id="big">
+                <img id="bigimg" src="big.jpg" alt=""/>
+            </div>
+            <div id="xinxi">
+                <h4>全宇宙超级无敌霹雳帆布鞋</h4>
+                <p>全宇宙超级无敌霹雳帆布鞋全宇宙超级无敌霹雳帆布鞋全宇宙超级无敌<br/>布鞋全宇宙超级无敌霹雳帆布鞋全宇
+                    宙超级无敌霹雳帆布鞋霹雳帆布鞋<br/>雳帆布鞋霹雳帆布宇宙超级无敌霹雳帆布宇宙超级无敌霹雳帆布宇宙超<br/>帆布
+                    宇宙超级无敌霹雳帆布鞋<br/><br/><del>原价:999999</del><br/>现价:99</p><br/>
+                <p id="pcolor">颜色:未选择</p>
+                <ul>
+                    <li><div id="lanbai"></div></li>
+                    <li><div id="shenhong" ></div></li>
+                    <li><div id="lianghuang"></div></li>
+                </ul>
+                <p id="pchicun">尺寸:未选择</p>
+                <ul>
+                    <li><span>S</span></li>
+                    <li><span>SL</span></li>
+                    <li><span>L</span></li>
+                    <li><span>XL</span></li>
+                </ul>
+                <p id="shuliang">数量:</p>
+                <select name="" id="">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <br/>
+                <p id="zongjia">总计:99</p>
+                <div id="gouwuche"><a  href=""><img src="gouwuche.png" alt=""/></a></div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="jquery-1.12.4.js"></script>
+<script>
+
+    $("#menu1 li").hover( function () {
+        $(this).children(".menuchild").show().end().siblings().children(".menuchild").hide();
+    }, function () {
+        $("#menu1 .menuchild").hide();
+    });
+    $("#mask").hover(function () {
+        $("#drag").show();
+        $("#big").show();
+    },function () {
+        $("#drag").hide();
+        $("#big").hide();
+    });
+    $("#mask").on("mousemove", function (e) {
+        var $x = e.clientX-parseInt($("#drag").css("width"))/2-300;
+        if($x < 0) {$x=0;}
+        else if($x > 200) {$x=200;}
+        var $y = e.clientY-parseInt($("#drag").css("height"))/2-100;
+        if($y < 0) {$y=0;}
+        else if($y > 200) {$y=200;}
+        $("#drag").css("left",$x).css("top",$y);
+        $("#bigimg").css("top",-$y*2).css("left",-$x*2);
+        console.log($("#big").css("left"));
+    });
+    $("#xinxi li").on("click",function(){
+        $(this).children().addClass("yangshi").end().siblings().children().removeClass("yangshi");
+        if($(this).index()==0) $("#pcolor").text("颜色:深蓝");
+        if($(this).index()==1) $("#pcolor").text("颜色:深红");
+        if($(this).index()==2) $("#pcolor").text("颜色:亮黄");
+    });
+    $("#xinxi span").on("click", function () {
+        $(this).addClass("yangshi").siblings().removeClass("yangshi");
+        if($(this).parent().index()==0) $("#pchicun").text("尺寸:S");
+        if($(this).parent().index()==1) $("#pchicun").text("尺寸:SL");
+        if($(this).parent().index()==2) $("#pchicun").text("尺寸:L");
+        if($(this).parent().index()==3) $("#pchicun").text("尺寸:XL");
+    });
+    $("#xinxi select").on("change", function () {
+        var zj=99*$("select").val();
+        $("#zongjia").text("总价:"+zj);
+    })
+
+
+</script>
+</body>
+</html>

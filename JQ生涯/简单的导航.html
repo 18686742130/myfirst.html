@@ -11,27 +11,36 @@
         ul{
             list-style: none;
         }
-        li{
+        #d1>ul{
+            height: 25px;
+        }
+        .l1{
             width: 100px;
             text-align: left;
+            height: 25px;
             float: left;
             background-color: #eeeeee;
         }
         a{
             background: #00ffff;
-            float: left;
             text-align: center;
             width: 100px;
             height: 25px;
+            display: block;
             text-decoration: none;
             background-image: url("down.gif");
             background-repeat:no-repeat;
             background-position:3px center;
         }
+        .l1 ul li{
+            width: 100px;
+            text-align: left;
+            height: 25px;
+            background-color: #eeeeee;
+        }
         #d1 ul li ul{
             display: none;
         }
-
     </style>
 </head>
 <body>
@@ -40,45 +49,48 @@
         <li class="l1">
             <a href="">one</a>
             <ul>
-            <li>大</li>
-            <li>白</li>
-            <li>痴</li>
-        </ul>
+                <li >子菜单1</li>
+                <li>子菜单1</li>
+            </ul>
         </li>
-        <li>
+        <li class="l1">
             <a href="">two</a>
-        <ul>
-            <li>说</li>
-            <li>的</li>
-            <li>就</li>
-        </ul>
+            <ul>
+            <li>子菜单2</li>
+            <li>子菜单2</li>
+            </ul>
         </li>
-        <li>
+        <li class="l1">
             <a href="">three</a>
-        <ul>
-            <li>是</li>
-            <li>你</li>
-            <li>笨</li>
-        </ul>
+            <ul>
+            <li>子菜单3</li>
+            <li>子菜单3</li>
+            </ul>
         </li>
     </ul>
 </div>
 <script src="jquery-1.12.4.js"></script>
 <script>
     $(function () {
-//        $("a").siblings().hide();
-        $("a").on("mouseover",function () {
-            $(this).siblings().slideDown();
-            $(this).css("background-image","url('up.gif')")
+        $(".l1").on("mouseover",function () {
+            $(this).children("ul").stop().slideDown("slow");
+            $(this).children("a").css("background-image","url('up.gif')")
         });
-        $("a").on("mouseout",function () {
-            $(this).siblings().slideUp();
-            $(this).css("background-image","url('down.gif')");  //小问题 shu鼠标移动到子菜单怎么让子菜单不消失
+        $(".l1").on("mouseout",function () {
+            $(this).children("ul").stop().slideUp("slow");
+            $(this).children("a").css("background-image","url('down.gif')");  //小问题 鼠标移动到子菜单为什么会消失，下面的就不会
         });
-    })
+    });
 
-
+//$(document).ready(function(){
+//    $(".l1").hover(function(){//hover函数与toggle类似，唯一的区别是一是点击事件，一个是鼠标滑过事件
+//        $(this).children("ul").slideDown();
+//        $(this).children("a").css("background-image","url('up.gif')");
+//    },function(){
+//        $(this).children("ul").slideUp();
+//        $(this).children("a").css("background-image","url('down.gif')");
+//    });
+//});
 </script>
-
 </body>
 </html>

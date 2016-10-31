@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+        }
+        #fo{
+            width: 200px;
+            height: 600px;
+            margin: 100px auto;
+        }
+        p{
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+<form id="fo" action="">
+    <input id="big" type="button" value="放大"/>
+    <input id="small" type="button" value="缩小"/>
+<div>
+    <p>
+        This is some text. This is some text. This is some text. This is some text. This
+        is some text. This is some text. This is some text. This is some text. This is some
+        text. This is some text. This is some text. This is some text. This is some text.
+        This is some text. This is some text. This is some text. This is some text. This
+        is some text. This is some text.
+    </p>
+</div>
+</form>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function () {
+        $("#big").on("click", function () {
+            console.log($("p").css("font-size"));
+            if(parseInt($("p").css("font-size"))<=20){
+            $("p").css("font-size","+=1px");
+            }
+        });
+        $("#small").on("click", function () {
+//            if($("p").attr("font-size")>=1){
+            $("p").css("font-size","-=1px");
+//            }
+        });
+    })
+</script>
+</body>
+</html>
