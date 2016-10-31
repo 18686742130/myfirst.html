@@ -3,11 +3,63 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border-collapse:collapse;
+            /*border:1px solid blue;*/
+            /*border:0;*/
+        }
+        th{
+            background: #eeeeee;
+        }
+        td{
+            width: 150px;
+            height: 20px;
+            background: #eeeeee;
+        }
+        input{
+            width: 150px;
+            height: 20px;
+            background: #00ffff;
+        }
+    </style>
 </head>
 <body>
-
-
-
-
+<table border="1">
+    <tr><th>序号</th><th>姓名</th></tr>
+    <tr><td>1</td><td class="sr">123</td></tr>
+    <tr><td>2</td><td class="sr">123</td></tr>
+    <tr><td>3</td><td class="sr">123</td></tr>
+    <tr><td>4</td><td class="sr">123</td></tr>
+    <tr><td>5</td><td class="sr">123</td></tr>
+    <tr><td>6</td><td class="sr">123</td></tr>
+</table>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $(".sr").on("click",function(){
+            var $input=$('<input type="text" class="ip"/>');
+            $input.val($(this).text());
+            if($(this).children().hasClass("ip")) {
+                return false;
+            }
+            $(this).text("").append($input);
+            $input.trigger("focus");
+            var $this=$(this);
+            $input.on("blur", function () {
+                $this.text($input.val());
+            });
+            $input.on("keydown",function(e){
+                if(e.keyCode==13){
+                    $this.text($input.val());
+                }
+            })
+        });
+    })
+</script>
 </body>
 </html>

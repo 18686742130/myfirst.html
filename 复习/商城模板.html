@@ -10,7 +10,6 @@
         }
         ul{
             list-style: none;
-
         }
         a{
             text-decoration: none;
@@ -361,15 +360,12 @@
                 <br/>
                 <p id="zongjia">总计:99</p>
                 <div id="gouwuche"><a  href=""><img src="gouwuche.png" alt=""/></a></div>
-
             </div>
-
         </div>
     </div>
 </div>
 <script src="jquery-1.12.4.js"></script>
 <script>
-
     $("#menu1 li").hover( function () {
         $(this).children(".menuchild").show().end().siblings().children(".menuchild").hide();
     }, function () {
@@ -409,9 +405,7 @@
     $("#xinxi select").on("change", function () {
         var zj=99*$("select").val();
         $("#zongjia").text("总价:"+zj);
-    })
-
-
+    });
 </script>
 </body>
 </html>
