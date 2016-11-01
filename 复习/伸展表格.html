@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+        }
+        .bs{
+            background: #00ffff;
+        }
+    </style>
+</head>
+<body>
+<table border="1">
+    <tr class="xiaozu"><td>一组</td><td></td><td></td></tr>
+    <tr class="menuchild"><td>111</td><td>111</td><td>111</td></tr>
+    <tr class="menuchild"><td>111</td><td>111</td><td>111</td></tr>
+    <tr class="xiaozu"><td>二组</td><td></td><td></td></tr>
+    <tr class="menuchild"><td>222</td><td>222</td><td>222</td></tr>
+    <tr class="menuchild"><td>222</td><td>222</td><td>222</td></tr>
+    <tr class="xiaozu"><td>三组</td><td></td><td></td></tr>
+    <tr class="menuchild"><td>333</td><td>333</td><td>333</td></tr>
+    <tr class="menuchild"><td>333</td><td>333</td><td>333</td></tr>
+</table>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(".menuchild").hide();
+    $(".xiaozu").on("click",function(){
+        $(this).toggleClass("bs");
+        $("tr").eq($(this).index()+1).toggle().end().eq($(this).index()+2).toggle();
+    })
+</script>
+</body>
+</html>
