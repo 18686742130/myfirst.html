@@ -19,12 +19,9 @@
     var oK=document.getElementById("k");
     var aOp=oK.getElementsByTagName("option");
     var oXl=document.getElementById("xl");
-
     document.getElementById("text").innerHTML=oXl.options[oXl.selectedIndex].text+"&nbsp"+oXl.value;
-
     oXl.onchange=function(){
         document.getElementById("text").innerHTML=oXl.options[oXl.selectedIndex].text+"&nbsp"+oXl.value;
-
     }
 </script>
 </body>

@@ -12,8 +12,6 @@
         border: 2px solid blue;
         background-color: #00ffff;
     }
-
-
     </style>
 </head>
 <body>
@@ -22,7 +20,6 @@
     <label for="name">名称:</label> <input id="name" type="text" value="请输入名称"/><br/>
     <label for="key">密码:</label> <input id="key" type="password" /><br/>
     详细信息: <textarea name="" id="more" cols="30" rows="4" >请输入详细信息</textarea>
-
     <script src="jquery-1.12.4.js"></script>
     <script>
         $("#name").focus(function () {
@@ -47,25 +44,7 @@
             if($("#more").val()=="") $("#more").val("请输入详细信息");
             $("#more").removeClass("change");
         });
-
-
-
-
-
-
-
     </script>
-
-
-
-
-
-
 </fieldset>
-
-
-
-
-
 </body>
 </html>

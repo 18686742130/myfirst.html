@@ -38,7 +38,6 @@
         }
         #bbb{
             position: absolute;
-
             top:0 ;
             left : 0;
         }
@@ -56,25 +55,20 @@
     </style>
 </head>
 <body>
-
 <div id="small">
     <div id="mask"></div>
     <div id="drag"></div>
     <img src="img/small.png" />
 </div>
-
 <div id="big">
     <img id="bbb" src="img/big.png" />
 </div>
-
 <script>
     var oDrag = document.getElementById("drag");
     var oBig  = document.getElementById("big");
     var oSmall= document.getElementById("small");
     var oMask = document.getElementById("mask");
     var oBbb  = document.getElementById("bbb");
-
-
     oMask.onmouseover = function () {
         oDrag.style.display = "block";
         oBig.style.display = "block";
@@ -91,8 +85,6 @@
             else if(oDrag.offsetLeft > oSmall.offsetWidth - oDrag.offsetWidth){
             oDrag.style.left = oSmall.offsetWidth-oDrag.offsetWidth+"px";
             }
-
-
         oDrag.style.top = iTop+"px";
             if(oDrag.offsetTop < 0){
             oDrag.style.top = 0;
@@ -100,7 +92,6 @@
             else if(oDrag.offsetTop > oSmall.offsetHeight - oDrag.offsetHeight){
             oDrag.style.top = oSmall.offsetHeight - oDrag.offsetHeight+"px";
             }
-
         oBbb.style.left = -(oBbb.offsetWidth-oBig.offsetWidth)*oDrag.offsetLeft/(oSmall.offsetWidth-oDrag.offsetWidth)+"px";
         oBbb.style.top  = -(oBbb.offsetHeight-oBig.offsetHeight)*oDrag.offsetTop/(oSmall.offsetHeight-oDrag.offsetHeight)+"px";
                 //滑头鬼之孙，两季
@@ -109,12 +100,7 @@
         oDrag.style.display = "none";
         oBig.style.display = "none";
     };
-
-
-
 </script>
-
-
 </body>
 </html>
 

@@ -279,7 +279,6 @@
         $(".yc").eq($(this).index()).addClass("xs").siblings().removeClass("xs");
         i=$(this).index();
     });
-
     timer = setInterval(function () {
         console.log(i);
         i+=1;
@@ -288,7 +287,6 @@
         }
         $("li").eq(i).trigger("click");
     },1000);
-
     $("#bd").hover(function(){
         clearInterval(timer);
     },function(){

@@ -10,13 +10,10 @@
     // '它从字符串s中顺序取出数字，并且合并为一个独立的字符串作为函数的返回值。' +
     // '例如函数调用CollectDigits("1abc23def4"）的返回值是字符串"1234"。
     // indexOf   charAt
-
     document.write("利用indexOf:");
-
     var a = "1abc23def4";
     var b = new String();
     var c = new String();
-
     for (i=0;i<= a.length;i++){
         if (a.indexOf(i)!=-1){
             b+=i;
@@ -24,16 +21,12 @@
     }
     document.write(b+"<br/>");
     document.write("利用charAt:");
-
     for (i=0;i<= a.length;i++){
         if(a.charAt(i)>0){
             c+=a[i];
         }
     }
     document.write(c);
-
-
-
 </script>
 </body>
 </html>

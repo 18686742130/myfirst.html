@@ -87,7 +87,6 @@
             <li>2</li>
             <li>3</li>
             <li>4</li>
-
         </ul>
     </div>
     <div id="span">
@@ -101,7 +100,6 @@
     var $index = 0;var a=0;
     $(function() {
         $("li").on("click", function () {
-
             $(this).addClass("change").siblings().removeClass("change");
             $("#img").animate({
                 left:-680*$(this).index()

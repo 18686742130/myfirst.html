@@ -25,9 +25,7 @@
         #d1{
             width: 400px;
             height: 300px;
-
             margin: 200px auto;
-
         }
         #d1 div{
             width: 400px;
@@ -56,20 +54,12 @@
 </div>
 <script src="jquery-1.12.4.js"></script>
 <script>
-
     $(function(){
         var $li = $("li").on("click", function () {
-
                 $(this).addClass("bian").siblings().removeClass("bian");
                 $("#d1 div").eq($(this).index()).addClass("asd").siblings().removeClass("asd");
-
         })
-
-
     })
-
-
-
 </script>
 </body>
 </html>

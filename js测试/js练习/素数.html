@@ -6,36 +6,22 @@
 </head>
 <body>
 <!--在页面上编程输出100~1000之间的所有素数，并要求每行显示6个素数。-->
-
 <script>
-
     var a, b=0;
-
     function su(c) {
         var i;
         for (i = 2; i < c; i++) if (c% i == 0) return false;
             return true;
-
     }
-
     for(a=100;a<1001;a++){
-
        if(su(a)){
            if (b%6 > 0) document.write(",");
            b++;
            document.write(a);
            console.log(1);
            if (b%6 == 0) document.write("<br>");
-
        }
-
     }
 </script>
-
-
-
-
-
-
 </body>
 </html>

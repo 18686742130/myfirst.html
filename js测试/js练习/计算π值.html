@@ -7,11 +7,8 @@
 <body>
 <script>
 //    8.编写函数，用下面的公式计算π的近似值。
-
     var p;
-
     var n = prompt("请选择你想要的精确度","1000");
-
     function pai (n){
         if(n<=1) {
            return p=1;
@@ -20,13 +17,7 @@
            return p = Math.pow(-1, n - 1) / (2 * n - 1) + pai(n - 1);
         }
     }
-
 document.write("π的近似值为："+4*pai(n));
-
-
-
-
-
 </script>
 </body>
 </html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            width: 100px;
+            height: 20px;
+        }
+    </style>
+</head>
+<body>
+<input id="search" type="text"/>
+<table id="table" border="1">
+    <tr><td>姓名</td><td>性别</td><td>学号</td></tr>
+    <tr><td>金健明</td><td>男</td><td>111</td></tr>
+    <tr><td>任东旭</td><td>女</td><td>222</td></tr>
+    <tr><td>张晓婷</td><td>男</td><td>333</td></tr>
+    <tr><td>唐伟峰</td><td>男</td><td>444</td></tr>
+    <tr><td>曹子康</td><td>女</td><td>555</td></tr>
+    <tr><td>魏明徐</td><td>男</td><td>666</td></tr>
+    <tr><td>贾成龙</td><td>女</td><td>777</td></tr>
+</table>
+<script src="jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("tr:even").css("background","#00ffff");
+        $("tr:odd").css("background","yellow");
+        $("#search").on("keyup",function(){
+            $("tr").hide();
+            if($(this).val()==""){
+                $("tr").show();
+            }
+            else{
+                $("td:contains("+$(this).val()+")").parent().show();
+            }
+        })
+    });
+</script>
+</body>
+</html>

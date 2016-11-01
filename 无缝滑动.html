@@ -41,13 +41,11 @@
             line-height: 300px;
             font-size:1000%;
             margin-right: 40px;
-            
         }
         #btn{
             position:absolute;
             bottom: 40px;
             right: 175px;
-
         }
         #btn span{
             background-color: yellow;
@@ -84,18 +82,14 @@
     </div>
 </div>
 <script>
-
     var oZuo = document.getElementById("zuo");
     var oYou = document.getElementById("you");
     var oZi  = document.getElementById("zi");
     var aLi  = oZi.getElementsByTagName("li");
     var oLie = document.getElementById("lie");
     var speed  = -2 ;
-
     run (speed);
-
     var timer;
-
     oZuo.onmouseover = function(){
         speed = -2;
         clearInterval(timer);
@@ -106,9 +100,6 @@
         speed = 2;
         run (speed);
     };
-
-
-
     function run (speed){
         timer = setInterval(function(){
             oZi.style.left = oZi.offsetLeft+speed+"px";
@@ -120,12 +111,7 @@
                 oZi.style.left = -800+"px";
     }
         },10)
-
     }
-
-
-
-
 //    oZuo.onmouseover = function()
 //    {
 //        speed  = -2;
@@ -148,19 +134,7 @@
 //        }, 20);
 //
 //    };
-
-
-
-
-
-
-
-
-
-
 </script>
-
-
 </body>
 </html>
 

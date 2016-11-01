@@ -66,31 +66,21 @@
         var oTxt = document.getElementById("txt");
         var oLong = document.getElementById("long");
         var oBtn = document.getElementById("btn");
-
         oBtn.onmousedown = function(e){
-
             e = e || window.event;
-
             var cha = e.clientY-oBtn.offsetTop;
-
             document.onmousemove = function(e){
                 e = e || window.event;
                 var top = e.clientY-cha;
-
                 if(top<0){
                     top = 0;
                 }
-
                 if(top>oLong.offsetHeight-oBtn.offsetHeight){
                     top = oLong.offsetHeight-oBtn.offsetHeight;
                 }
-
                 oBtn.style.top = top +"px";
-
                 var obili = top/(oLong.offsetHeight-oBtn.offsetHeight);
-
                 oTxt.style.top = -(oTxt.offsetHeight-oAll.offsetHeight)*obili+"px";
-
                 return false;                //文字还是被拉蓝
             };
             document.onmouseup = function() {
