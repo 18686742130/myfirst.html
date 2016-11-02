@@ -1,0 +1,17 @@
+#news{
+    height: 492px;
+}
+#news-work{
+    width: 1002px;
+    height: 492px;
+    margin: 0 auto;
+}
+#news-work a{
+    font-size: 15px;
+    font-family: 'Microsoft YaHei';
+    color: #00aeff;
+    margin-left: 123px;
+}
+#news-work td{
+    width: 334px;
+}

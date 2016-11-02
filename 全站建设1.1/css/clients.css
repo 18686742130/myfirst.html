@@ -1,0 +1,46 @@
+#clients{
+    width: 1002px;
+    height: 154px;
+    margin: 0 auto;
+    position: relative;
+}
+#clients pre{
+    font-size: 30px;
+    font-family: "Microsoft YaHei";
+    float: left;
+    width: 1002px;
+    margin: 27px 0 15px 0;
+    color: #626262;
+}
+#clients span{
+    width: 29px;
+    height: 50px;
+    cursor: pointer;
+}
+#cltleft{
+    background: url("../images/search.png") 0 -73px;
+    float: left;
+}
+#cltright{
+    background: url("../images/search.png") 0 -22px;
+    float: right;
+}
+#clients .span{
+    width: 23px;
+    height: 50px;
+}
+#clientbody{
+    width: 954px;
+    height: 52px;
+    overflow: hidden;
+    position: absolute;
+    left: 24px;
+    bottom: 30px;
+}
+#cltpic{
+    width: 1120px;
+    height: 52px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}

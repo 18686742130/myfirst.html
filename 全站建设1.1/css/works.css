@@ -1,0 +1,21 @@
+#works{
+    height: 500px;
+    background: #e2e7ed;
+}
+#our-works{
+    width: 1002px;
+    height: 500px;
+    /*background: #e2e7ed;*/
+    margin: 0 auto;
+}
+#our-works a{
+    float: left;
+}
+#our-works pre{
+    font-size: 30px;
+    font-family: "Microsoft YaHei";
+    float: left;
+    width: 1002px;
+    margin: 27px 0 15px 0;
+    color: #626262;
+}
