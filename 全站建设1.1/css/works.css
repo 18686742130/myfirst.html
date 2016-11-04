@@ -10,6 +10,7 @@
 }
 #our-works a{
     float: left;
+    height: 200px;
 }
 #our-works pre{
     font-size: 30px;
