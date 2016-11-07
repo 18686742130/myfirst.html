@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        #one{
+            width: 680px;
+            height: 344px;
+
+            margin: 200px auto;
+            position: relative;
+        }
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        li{
+            float: left;
+            width: 100px;
+            height: 20px;
+
+        }
+    </style>
+</head>
+<body>
+
+    <div id="one">
+        <img style="z-index: 4" src="1.jpg" alt=""/>
+        <img style="z-index: 3" src="2.jpg" alt=""/>
+        <img style="z-index: 2" src="3.jpg" alt=""/>
+        <img style="z-index: 1" src="4.jpg" alt=""/>
+    </div>
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+        </ul>
+    <script src="jquery-1.12.4.js"></script>
+    <script>
+        var a=4;
+        $("ul li").on("click", function () {
+            a++;
+            var $index=$(this).index();
+            $("#one img").eq($(this).index()).css("z-index",a).css("opacity",0).animate({
+                opacity:1
+            },1000);
+        })
+
+
+
+
+    </script>
+</body>
+</html>

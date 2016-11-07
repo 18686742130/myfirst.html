@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #two{
+            width: 680px;
+            height: 344px;
+            margin: 200px auto;
+            /*overflow: hidden;*/
+            position: relative;
+            border: 50px solid red;
+        }
+        #one{
+            width: 2720px;
+            height: 344px;
+            border: 10px solid black;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        ul{
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+        li{
+            float: left;
+            width: 100px;
+            height: 20px;
+            background-color: red;
+        }
+        img{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="two">
+    <div id="one">
+        <img style="z-index: 4" src="1.jpg" alt=""/>
+        <img style="z-index: 3" src="2.jpg" alt=""/>
+        <img style="z-index: 2" src="3.jpg" alt=""/>
+        <img style="z-index: 1" src="4.jpg" alt=""/>
+    </div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+    </ul>
+</div>
+
+<script src="jquery-1.12.4.js"></script>
+<script>
+    var a=0;
+    $("#one img").eq(0).clone().appendTo("#one");
+    $("#one").css("width",$("#one img").eq(0).width()*5)
+    $("li").on("click",function(){
+        var $index=$(this).index();
+        if($index==0){
+            $index=4;
+        }
+        $("#one").animate({
+            left:-$("#one img").eq(0).width()*$index
+        },1000,function(){
+            if($index==4){
+                $("#one").css("left",0);
+            }
+        })
+
+
+
+
+    })
+
+
+</script>
+</body>
+</html>

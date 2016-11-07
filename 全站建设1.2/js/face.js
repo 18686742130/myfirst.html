@@ -42,12 +42,11 @@ $(function(){
     var timer = setInterval(function(){
         $index++;
         a++;
-        console.log(123);
         if($index==5) $index=0;
         $("#long-ul li").eq($index).addClass("blue").siblings().removeClass("blue");
         $("#long-pic img").eq($index).css("z-index",a).css("opacity",0).stop().animate({
             opacity:1
-        },600);
+        },1000);
        // console.log($index);
     },1000);
     $("#works-pic").on("mouseover",function(){
