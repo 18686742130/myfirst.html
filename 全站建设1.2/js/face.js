@@ -11,13 +11,11 @@ $(function(){
         if(this.value==this.defaultValue){
             this.value="";
         }
-    });
-    $("#search").on("blur",function(){
+    }).on("blur",function(){
         if(this.value==""){
             this.value=this.defaultValue;
         }
-    });
-    $("#search").on("keypress",function(){
+    }).on("keypress",function(){
         if(event.keyCode==13){
             alert(this.value);
         }
@@ -27,11 +25,15 @@ $(function(){
     }).on("mouseout",function(){
         $("#ul li").children(".menu-child").hide();
     });
+
+
+
     var a= 5;
     var $index=0;
-    $("#long-ul li").on("mouseover",function(e){
+    $("#long-ul li").on("mouseenter",function(e){
         $(this).addClass("blue").siblings().removeClass("blue");
         $index=$(this).index();
+        console.log($index+"ccc");
         a++;
             $("#long-pic img").eq($index).css("z-index",a).css("opacity",0).stop().animate({
                 opacity:1
@@ -47,27 +49,22 @@ $(function(){
         $("#long-pic img").eq($index).css("z-index",a).css("opacity",0).stop().animate({
             opacity:1
         },1000);
-       // console.log($index);
     },1000);
     $("#works-pic").on("mouseover",function(){
-        console.log(timer+"rrr");
+        console.log($index+'aaaa');
         clearInterval(timer);
-        console.log(2222);
         return false;
     });
     $("#works-pic").on("mouseout",function() {
-        console.log(1);
-
         timer = setInterval(function () {
             $index++;
+            console.log($index +"bbb");
             a++;
-            console.log(123);
             if ($index == 5) $index = 0;
             $("#long-ul li").eq($index).addClass("blue").siblings().removeClass("blue");
             $("#long-pic img").eq($index).css("z-index", a).css("opacity", 0).stop().animate({
                 opacity: 1
             }, 600);
-            console.log(timer + "qqq");
         },1000);
     });
     $("#pic2-ul1 ul li").on("mouseover",function(){

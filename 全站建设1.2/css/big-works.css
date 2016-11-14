@@ -233,17 +233,25 @@
 #tab-green-2{
     background: url("../images/pro_img/green_two.jpg");
 }
-
+#fen{
+    height: 16px;
+    width: 100px;
+    margin-top: 10px;
+}
 #fen li{
     width: 16px;
     height: 16px;
     float: left;
     background: url("../images/star-matrix.gif") 0 0;
 }
-#fen li span{
+#fen li a{
+
     float: left;
     width: 16px;
     height: 16px;
+}
+#fen li .tai{
+    background-position-y: 0;
 }
 #xxk{
     width: 308px;

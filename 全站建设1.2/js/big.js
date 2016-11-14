@@ -23,8 +23,8 @@ $(function(){
     });
     $("#com-small-pic").on("mousemove",function(e){
         e = e||window.event;
-        var y= e.clientY-162;
-        var x= e.clientX-parseInt($("#works").css("margin-left"))-250;
+        var y= e.pageY-162;
+        var x= e.pageX-parseInt($("#works").css("margin-left"))-250;
         if(y<0){
             y=0;
         }
@@ -60,18 +60,24 @@ $(function(){
         $("#size").text($(this).children().text());
     });
 
-    $("#fen li").on("mouseenter", function () {
+    $("#fen li").hover(function () {
         f=$(this).index();
         $("#fen li:lt("+(f+1)+")").css("background-position-y",-96);
         $("#fen li:gt("+f+")").css("background-position-y",0);
-    });
-    $("#fen li").on("mouseleave", function () {
-        $("#fen li:lt("+(f+1)+")").css("background-position-y",-16);
-        $("#fen li:gt("+f+")").css("background-position-y",0);
+    },function(){
+        $("#fen li").css("background-position-y","");
     });
     $("#fen li").on("click", function () {
-        alert('您的评分是'+f+'分');
+        $("#fen li").off("mouseleave");
+        alert('您的评分是'+(f+1)+'分');
+        $("#fen li:lt("+(f+1)+")").css("background-position-y",-16);
+        var p=f+1;
+        $("#fen li").on("mouseleave",function(){
+            $("#fen li:lt("+p+")").css("background-position-y",-16);
+            $("#fen li:gt("+(p-1)+")").css("background-position-y",0);
+        })
     });
+
     $("#xxk ul li").on("click",function(){
         $(this).addClass("sss").siblings().removeClass("sss");
         $("#xxk div").eq($(this).index()).show().siblings("div").hide();

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #lll{
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid yellow;
+            background-color: #eeeeee;
+        }
+        #zzz{
+            width: 400px;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="zzz">
+    <p><a href="#" class="ti" title="提示1">提示1</a></p>
+    <p><a href="#" class="ti" title="提示2">提示2</a></p>
+    <p><a href="#">提示3</a></p>
+    <p><a href="#">提示4</a></p>
+</div>
+
+
+
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var sss;
+        $(".ti").hover(function(e){
+            sss=this.title;
+            this.title="";
+            var dv = "<div id='lll'>"+sss+"</div>";
+            $("body").append(dv);
+            $("#lll").css({
+                        "left": e.pageX+15,
+                        "top": e.pageY+15
+                    }).show("fast");
+            },function(){
+            $("#lll").remove();
+            this.title=sss;
+
+
+        });
+
+    })
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
