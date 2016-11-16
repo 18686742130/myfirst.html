@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            width: 100%;
+            height: 100%;
+            -webkit-perspective: 1000px;
+            /*-webkit-perspective-origin: center top;*/
+            background-color: #000000;
+        }
+        body{
+            margin: 400px auto;
+            height: 100%;
+            width: 100%
+        }
+        #content{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 200px auto;
+            /*-webkit-animation: sss 6s ;*/
+            -webkit-transform-style: preserve-3d;
+            -webkit-transition: -webkit-transform 2s;
+        }
+        @-webkit-keyframes sss {
+            0%{}
+            100%{
+                -webkit-transform: rotateY(60deg);
+            }
+        }
+        #content div{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #eeeeee;
+            opacity: 0.8;
+            border: 1px solid #00ffff;
+        }
+        #one{
+            -webkit-animation: one 0.5s 3s forwards;
+            background: url("../img/11111.jpg");
+        }
+        @-webkit-keyframes one {
+            from{
+            }
+            to{
+                -webkit-transform: translateZ(346px);
+            }
+        }
+        #two{
+            -webkit-animation: two 0.5s 1.5s forwards;
+            -webkit-transform-origin: right;
+            background: url("../img/55555.jpeg");
+        }
+        @-webkit-keyframes two {
+            from{
+            }
+            to{
+                -webkit-transform: translateX(200px) rotateY(60deg);
+            }
+        }
+        #three{
+            -webkit-transform-origin: right;
+            background: url("../img/88888.jpg");
+            -webkit-animation: three 0.5s 2s forwards;
+        }
+        @-webkit-keyframes three {
+            from{
+            }
+            to{
+                -webkit-transform: translateX(200px) rotateY(300deg);
+            }
+        }
+        #four{
+            -webkit-animation: four 0.5s 0.5s forwards;
+            background: url("../img/44444.jpg");
+        }
+        @-webkit-keyframes four {
+            from{
+            }
+            to{
+                -webkit-transform: translateZ(-346px);
+            }
+        }
+        #five{
+            -webkit-animation: five 0.5s 2.5s forwards;
+            -webkit-transform-origin: left;
+            background: url("../img/66666.jpeg");
+        }
+        @-webkit-keyframes five {
+            from{
+            }
+            to{
+                -webkit-transform: translateX(-200px) rotateY(60deg);
+            }
+        }
+        #six{
+            -webkit-animation: six 0.5s 1s forwards;
+            -webkit-transform-origin: left;
+            background: url("../img/77777.jpg");
+        }
+        @-webkit-keyframes six {
+            from{
+            }
+            to{
+                -webkit-transform: translateX(-200px) rotateY(-60deg);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id=content>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="five"></div>
+    <div id="six"></div>
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+
+        var q, w, d, f,b= 0,v=0;
+        var $body=$("html");
+        $body.on("mousedown",function(e){
+            q= e.clientX;
+            d= e.clientY;
+        });
+        $body.on("mouseup",function(e){
+            w= e.clientX;
+            f=e.clientY;
+            var a1=Math.abs(w-q);
+            var a2=Math.abs(f-d);
+            if(w-q>0&&a1>a2){
+                b+=30;
+                $("#content").css("-webkit-transform","rotateY("+b+'deg) rotateX('+v+"deg)")
+            }
+            else if(w-q<0&&a1>a2){
+                b-=30;
+                $("#content").css("-webkit-transform","rotateY("+b+'deg) rotateX('+v+"deg)")
+            }
+            else if(f-d>0&&a1<a2){
+                v-=30;
+                $("#content").css("-webkit-transform","rotateY("+b+'deg) rotateX('+v+"deg)")
+            }
+            else if(f-d<0&&a1<a2){
+                v+=30;
+                $("#content").css("-webkit-transform","rotateY("+b+'deg) rotateX('+v+"deg)")
+            }
+        });
+    });
+
+
+
+
+    //    var b=0;
+    //    setInterval(function(){
+    //        b+=60;
+    //        $("#content").css("-webkit-transform","rotateY("+b+'deg)')
+    //    },1000);
+
+</script>
+</body>
+</html>

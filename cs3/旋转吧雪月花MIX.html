@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            -webkit-perspective: 1500px;
+            -webkit-perspective-origin: center -30%;
+        }
+        #content{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin: 400px auto;
+            -webkit-transform-style: preserve-3d;
+            -webkit-transition: -webkit-transform 1s  linear ;
+        }
+        #content img{
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #s1{
+            background: url("../img/88888.jpg");
+            -webkit-transition: -webkit-transform 1.2s 1.6s linear ;
+        }
+        #s2{
+            background: url("../img/22222.jpg");
+            -webkit-transition: -webkit-transform 1.2s 1.4s linear ;
+
+        }
+        #s3{
+            background: url("../img/33333.jpg");
+            -webkit-transition: -webkit-transform 1.2s 1.2s linear ;
+
+        }
+        #s4{
+            background: url("../img/77777.jpg");
+            -webkit-transition: -webkit-transform 1.2s 1s linear ;
+
+        }
+        #s5{
+            background: url("../img/55555.jpeg");
+            -webkit-transition: -webkit-transform 1.2s 0.8s linear ;
+
+        }
+        #s6{
+            background: url("../img/66666.jpeg");
+            -webkit-transition: -webkit-transform 1.2s  0.6s linear ;
+
+        }
+        #s7{
+            background: url("../img/11111.jpg");
+            -webkit-transition: -webkit-transform 1.2s  0.4s linear ;
+
+        }#s8{
+             background: url("../img/44444.jpg");
+             -webkit-transition: -webkit-transform 1.2s 0.2s linear ;
+
+         }#s9{
+              background: url("../img/66666.jpeg");
+              -webkit-transition: -webkit-transform 1.2s linear ;
+
+          }
+    </style>
+</head>
+<body>
+<div id="content">
+    <img id="s1" src="../img/11111.jpg" alt=""/>
+    <img id="s2" src="../img/22222.jpg" alt=""/>
+    <img id="s3" src="../img/33333.jpg" alt=""/>
+    <img id="s4" src="../img/44444.jpg" alt=""/>
+    <img id="s5" src="../img/55555.jpeg" alt=""/>
+    <img id="s6" src="../img/66666.jpeg" alt=""/>
+    <img id="s7" src="../img/77777.jpg" alt=""/>
+    <img id="s8" src="../img/88888.jpg" alt=""/>
+    <img id="s9" src="../img/44444.jpg" alt=""/>
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var a,b=360,c= 0,$img=$("img");
+        for(a=0;a<$img.size();a++){
+            $img.eq(a).css("-webkit-transform","rotateY("+b+'deg) translateZ(700px)');
+            b-=40;
+        }
+        $("html").on("click",function(){
+            c+=40;
+            $("#content").css("-webkit-transform","rotateY("+c+'deg)');
+            console.log(c)
+        })
+    })
+</script>
+</body>
+</html>

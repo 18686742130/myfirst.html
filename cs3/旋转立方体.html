@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            -webkit-perspective: 1000px;
+            background-color: #000000
+        }
+        #square{
+            width: 400px;
+            height: 400px;
+            margin: 350px auto;
+            position: relative;
+            animation:xuanzhuan 5s linear infinite ;
+            -webkit-transform-style:preserve-3d;
+            -webkit-transform:rotateY(30deg);
+        }
+        @-webkit-keyframes xuanzhuan {
+            0%{}
+            50%{
+                -webkit-transform: rotateY(180deg) rotateX(180deg) translateX(0);
+            }
+            100%{
+                -webkit-transform: rotateY(360deg) rotateX(360deg) translateX(0);
+            }
+            /*100%{*/
+                /*-webkit-transform: rotateY(360deg);*/
+            /*}*/
+        }
+        /*#square .big:hover{*/
+            /*-webkit-transform: scale(1.5) translateZ(300px);*/
+        /*}*/
+        #square .big{
+            width: 400px;
+            height: 400px;
+            background-color: #eeeeee;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0.8;
+            text-align: center;
+            line-height: 400px;
+            font-size: 40px;
+            border: 1px solid #00ffff;
+            border-radius: 20px;
+        }
+        #square .boom{
+             -webkit-transform: scale(1.5) translateZ(300px);
+         }
+        #one{
+            -webkit-transform:translateZ(200px) rotateX(-90deg) ;
+            -webkit-transform-origin: top;
+            background: url("../img/33333.jpg");
+        }
+        /*#two:hover{*/
+            /*-webkit-transform:translateZ(300px)  ;*/
+
+        /*}*/
+        #two{
+            -webkit-transform: translateZ(200px);
+            background: url("../img/55555.jpeg");
+        }
+        #three{
+            -webkit-transform:translateX(-200px) rotateY(-90deg);
+            background: url("../img/77777.jpg");
+        }
+        #four{
+            -webkit-transform:  rotateY(180deg) translateZ(200px);
+            background: url("../img/88888.jpg");
+        }
+        #five{
+            -webkit-transform:translateX(200px) rotateY(90deg);
+            background: url("../img/66666.jpeg");
+        }
+        #six{
+            -webkit-transform:translateZ(200px) rotateX(90deg);
+            -webkit-transform-origin: bottom;
+            background: url("../img/22222.jpg");
+        }
+        #square .small{
+            width: 200px;
+            height: 200px;
+            /*background-color: red;*/
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            opacity: 0.6;
+            text-align: center;
+            line-height: 400px;
+            font-size: 40px;
+            border: 1px solid #00ffff;
+            border-radius: 20px;
+        }
+        #qq{
+            -webkit-transform:translateZ(100px) rotateX(-90deg) ;
+            -webkit-transform-origin: top;
+            background: url("../img/88888.jpg");
+            -webkit-background-size:200px 200px ;
+
+        }
+        #ww{
+            -webkit-transform: translateZ(100px);
+            background: url("../img/88888.jpg");
+            -webkit-background-size:200px 200px ;
+
+        }
+        #ee{
+            -webkit-transform:translateX(-100px) rotateY(-90deg);
+            background: url("../img/77777.jpg");
+            -webkit-background-size:200px 200px ;
+
+        }
+        #rr{
+            -webkit-transform:  rotateY(180deg) translateZ(100px);
+            background: url("../img/66666.jpeg");
+            -webkit-background-size:200px 200px ;
+
+        }
+        #dd{
+            -webkit-transform:translateX(100px) rotateY(90deg);
+            background: url("../img/55555.jpeg");
+            -webkit-background-size:200px 200px ;
+        }
+        #ff{
+            -webkit-transform:translateZ(100px) rotateX(90deg);
+            background: url("../img/88888.jpg");
+            -webkit-transform-origin: bottom;
+            -webkit-background-size:200px 200px ;
+
+        }
+    </style>
+</head>
+<body>
+
+<div id="square">
+    <div id="one" class="big"></div>
+    <div id="two" class="big"></div>
+    <div id="three" class="big"></div>
+    <div id="four" class="big"></div>
+    <div id="five" class="big"></div>
+    <div id="six" class="big"></div>
+    <div id="qq" class="small"></div>
+    <div id="ww" class="small"></div>
+    <div id="ee" class="small"></div>
+    <div id="rr" class="small"></div>
+    <div id="dd" class="small"></div>
+    <div id="ff" class="small"></div>
+
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        $("#square").on("mouseover",function(){
+            $("#one").css("-webkit-transform","translate3d(0,-100px,200px) rotateX(-90deg)");
+            $("#two").css("-webkit-transform","translateZ(300px)");
+            $("#three").css("-webkit-transform","translateX(-300px) rotateY(-90deg)");
+            $("#four").css("-webkit-transform","translateZ(-300px) rotateY(180deg)");
+            $("#five").css("-webkit-transform","translateX(300px) rotateY(90deg)");
+            $("#six").css("-webkit-transform","translate3d(0,100px,200px) rotateX(90deg)");
+        });
+        $("#square").on("mouseout",function(){
+            $("#one").css("-webkit-transform","translate3d(0,0,200px) rotateX(-90deg)");
+            $("#two").css("-webkit-transform","translateZ(200px)");
+            $("#three").css("-webkit-transform","translateX(-200px) rotateY(-90deg)");
+            $("#four").css("-webkit-transform","translateZ(-200px) rotateY(180deg)");
+            $("#five").css("-webkit-transform","translateX(200px) rotateY(90deg)");
+            $("#six").css("-webkit-transform","translate3d(0,0,200px) rotateX(90deg)");
+        });
+    })
+
+
+</script>
+
+
+</body>
+</html>

@@ -4,13 +4,21 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
+        body{
+            /*background-color: pink;*/
+
+        }
         #round{
             width: 400px;
             height: 400px;
             margin: 200px auto;
             border-radius: 50%;
-            border: 3px solid black;
+            border: 3px solid #eeeeee;
             position: relative;
+            display: -webkit-flex;
+            /*-webkit-align-items: center;*/
+
+            /*-webkit-transform-origin: left;*/
         }
         *{
             margin: 0;
@@ -18,14 +26,78 @@
         }
         ul{
             list-style: none;
+
         }
         li{
             position: absolute;
             top: 0;
-            left: 200px;
-            background-color: black;
+            left: 199px;
+            background-color: #00ffff;
+            width: 2px;
+            height: 6px;
+            -webkit-transform-origin: 1px 200px;
+        }
+        #s1{
+            width: 6px;
+            height: 80px;
+            position: absolute;
+            top: 180px;
+            left: 197px;
+            background-color: red;
+            -webkit-transform-origin:center 20px;
+            -webkit-transform: rotate(-180deg);
+            /*-webkit-animation: s1 43200s infinite;*/
+            opacity: 0.8;
+        }
+        /*/!*@-webkit-keyframes s1 {*!/*/
+            /*/!*0%{  }*!/*/
+            /*/!*100%{*!/*/
+                /*/!*-webkit-transform: rotate(360deg);*!/*/
+            /*/!*}*!/*/
+        /*}*/
+        #s2{
             width: 4px;
-            height: 10px;
+            height: 130px;
+            position: absolute;
+            top: 180px;
+            left: 198px;
+            background-color: yellow;
+            -webkit-transform-origin:center 20px;
+            -webkit-transform: rotate(-180deg);
+            /*-webkit-animation: s2 3600s infinite;*/
+            opacity: 0.8;
+
+        }
+        /*@-webkit-keyframes s2 {*/
+            /*0%{  }*/
+            /*100%{*/
+                /*-webkit-transform: rotate(360deg);*/
+            /*}*/
+        /*}*/
+        #s3{
+            width: 2px;
+            height: 150px;
+            position: absolute;
+            top: 180px;
+            left: 199px;
+            background-color: black;
+            -webkit-transform-origin:center 20px;
+            -webkit-transform: rotate(-180deg);
+            /*-webkit-animation: s3 60s infinite;*/
+            opacity: 0.8;
+
+        }
+        /*@-webkit-keyframes s3 {*/
+            /*0%{  }*/
+            /*100%{*/
+                /*-webkit-transform: rotate(360deg);*/
+            /*}*/
+        /*}*/
+        p{
+            position: absolute;
+            top: 220px;
+            width: 400px;
+            text-align: center;
         }
     </style>
 </head>
@@ -94,21 +166,44 @@
         <li></li>
         <li></li>
     </ul>
-
+    <span id="s1"></span>
+    <span id="s2"></span>
+    <span id="s3"></span>
+    <p></p>
 </div>
+<script src="../jquery-1.12.4.js"></script>
 <script>
+//    var aLi = document.getElementsByTagName("li");
+//
+//    for(var a=0;a<aLi.length;a++){
+//        aLi[a].style.WebkitTransform="rotate("+a*6+"deg)";
+//        console.log(a*6)
+//    }
+    $(function(){
+        var date, h, m,s;
+        run();
+        for(var a=0;a<60;a++){
+            $("li").eq(a).css("WebkitTransform","rotate("+a*6+"deg)");
+            if(a%5==0){
+                $("li").eq(a).css("height",14)
+            }
+        }
+        function run(){
+            date=new Date();
+            h=date.getHours();
+            m=date.getMinutes();
+            s=date.getSeconds();
+            $("p").text(h+":"+m+":"+s);
+            $("#s1").css("-webkit-transform","rotate("+(h/12*360-180+m/60*30)+"deg)");
+            $("#s2").css("-webkit-transform","rotate("+(m/60*360-180+s/60*6)+"deg)");
+            $("#s3").css("-webkit-transform","rotate("+(s/60*360-180)+"deg)");
+//            $("#s3").animate({
+//                "-webkit-transform":"rotate("+(s/60*360-180)+"deg)"
+//            },1000);      jq不支持cs3的属性
 
-    var aLi = document.getElementsByTagName("li");
-
-
-    for(var a=0;a<=aLi.length;a++){
-        aLi[a].style.WebkitTransform=rotate(a*6+deg);
-    }
-
-
-
-
+        }
+            setInterval(run,1000);
+    })
 </script>
-
 </body>
 </html>

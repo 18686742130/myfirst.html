@@ -4,45 +4,43 @@
     <meta charset="UTF-8">
     <title></title>
     <style>
+        html{
+            height: 100%;
+        }
+        body{
+            height: 100%;
+        }
         #ddd{
-            background-color: #00ffff;
-            position: relative;
-            height: 800px;
+            display: -webkit-flex;
+            -webkit-flex-direction:column;
+            height: 100%;
         }
         #header{
             background-color: red;
-            /*width: 100%;*/
+            width: 100%;
             height: 100px;
-
-
         }
         #footer{
             background-color: blue;
-            width: 100%;
             height: 100px;
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            width: 100%;
         }
         *{
             margin: 0;
             left: 0;
         }
         #content{
-            display: -webkit-flex;
-            width: 100%;
+            background-color: #00ffff;
+            -webkit-flex-grow: 1;
         }
         ul{
-            width: 100%;
             list-style: none;
-            display: -webkit-flex;
         }
         li{
             width: 200px;
             height: 100px;
             background-color: yellow;
             margin-right: 10px;
-            -webkit-flex-shrink: 1;
         }
     </style>
 </head>
@@ -60,16 +58,6 @@
             <li>222</li>
             <li>333</li>
             <li>444</li>
-            <li>555</li>
-            <li>666</li>
-            <li>777</li>
-            <li>888</li>
-            <li>999</li>
-            <li>000</li>
-            <li>777</li>
-            <li>888</li>
-            <li>999</li>
-            <li>000</li>
 
         </ul>
 

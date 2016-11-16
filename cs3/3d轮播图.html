@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+
+        }
+        #content{
+            width: 400px;
+            height: 400px;
+            margin: 300px auto;
+            position: relative;
+            -webkit-perspective: 1000px;
+        }
+        img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            -webkit-transform-origin: bottom;
+            -moz-transform-origin: bottom;
+            -ms-transform-origin: bottom;
+            -o-transform-origin: bottom;
+            transform-origin: bottom;
+            opacity: 0;
+        }
+        img:first-child{
+            opacity: 1;
+        }
+        span{
+            /*background-color: #00ffff;*/
+            width: 70px;
+            height: 70px;
+            font-size: 70px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: #eeeeee;
+            -webkit-box-shadow: 5px 5px 5px  rgba(0,0,0,0.5);
+            -moz-box-shadow: 5px 5px 5px  rgba(0,0,0,0.5);
+            box-shadow: 5px 5px 5px  rgba(0,0,0,0.5);
+            color: white;
+            -webkit-text-stroke: 1px #000000;
+            cursor: pointer;
+        }
+        #z{
+            position: absolute;
+            top: 465px;
+            left: 200px;
+        }
+        #y{
+            position: absolute;
+            top: 465px;
+            right: 200px;
+        }
+        .show{
+            -webkit-animation: xxx 1.5s 0.5s ease forwards;
+        }
+        .hide{
+            -webkit-animation: yyy 1.5s  ease forwards;
+        }
+        @-webkit-keyframes xxx {
+            0%{
+                opacity: 0;
+                -webkit-transform: rotateX(180deg);
+            }
+            100%{
+                opacity: 1;
+                -webkit-transform: rotateX(0deg);
+            }
+        }
+        @-webkit-keyframes yyy {
+            0%{
+                opacity: 1;
+                -webkit-transform: rotateX(0deg);
+            }
+            100%{
+                opacity: 0;
+                -webkit-transform: rotateX(-180deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <img src="../img/88888.jpg" alt="" />
+        <img src="../img/77777.jpg" alt=""/>
+        <img src="../img/66666.jpeg" alt=""/>
+        <img src="../img/55555.jpeg" alt=""/>
+    </div>
+    <span id="z">&lt;</span>
+    <span id="y">&gt;</span>
+    <script src="../jquery-1.12.4.js"></script>
+    <script>
+        $(function(){
+            var b=0;
+            $("#y").on("click",function(){
+                $("img").eq(b).removeClass().addClass("hide");
+                b++;
+                if(b>3)b=0;
+                $("img").eq(b).removeClass().addClass("show");
+            });
+            $("#z").on("click",function(){
+                $("img").eq(b).removeClass().addClass("hide");
+                b--;
+                if(b<0)b=3;
+                $("img").eq(b).removeClass().addClass("show");
+            });
+        });
+//        var oZ=document.getElementById("z"),
+//             oY=document.getElementById("y"),
+//             aImg=document.getElementsByTagName("img"),
+//                b=0;
+//
+//        oZ.onclick = oY.onclick = function(){
+//            if(this==oZ){
+//                aImg[b].className="hide";
+//                b--;
+//                if(b<0) b=3;
+//                aImg[b].className="show";
+//            }
+//            else if(this==oY){
+//                aImg[b].className="hide";
+//                b++;
+//                if(b>3) b=0;
+//                aImg[b].className="show";
+//            }
+//        }
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
