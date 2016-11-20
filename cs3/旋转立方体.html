@@ -8,7 +8,13 @@
             margin: 0;
             padding: 0;
         }
+        html{
+            height: 100%;
+            width: 100%;
+        }
         body{
+            height: 100%;
+            width: 100%;
             -webkit-perspective: 1000px;
             background-color: #000000
         }
@@ -19,7 +25,7 @@
             position: relative;
             animation:xuanzhuan 5s linear infinite ;
             -webkit-transform-style:preserve-3d;
-            -webkit-transform:rotateY(30deg);
+            /*-webkit-transform:rotateY(30deg);*/
         }
         @-webkit-keyframes xuanzhuan {
             0%{}
@@ -39,15 +45,12 @@
         #square .big{
             width: 400px;
             height: 400px;
-            background-color: #eeeeee;
+            /*background-color: #eeeeee;*/
             position: absolute;
             top: 0;
             left: 0;
             opacity: 0.8;
-            text-align: center;
-            line-height: 400px;
-            font-size: 40px;
-            border: 1px solid #00ffff;
+            /*border: 1px solid #00ffff;*/
             border-radius: 20px;
         }
         #square .boom{

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            -webkit-perspective: 1000px;
+            background: #eeeeee;
+        }
+        #main{
+            position: relative;
+        }
+        #pic{
+            width: 612px;
+            height: 612px;
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            margin-left:-306px;
+            z-index:2;
+        }
+        #pic img{
+            width: 200px;
+            height: 200px;
+            margin: 2px;
+            float: left;
+            -webkit-backface-visibility:hidden;
+        }
+        #content{
+            position: absolute;
+            top: 80px;
+            left: 50%;
+            margin-left:-306px;
+            width: 612px;
+            height: 612px;
+        }
+        .k0{
+            background: url("../img/111.png") 0 0;
+            width: 200px;
+            height: 200px;
+            float: left;
+            margin: 2px;
+            -webkit-backface-visibility:hidden;
+            -webkit-transform:rotateY(180deg);
+            /*-webkit-transition:-webkit-transform 2s ease;*/
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <div id="pic">
+        <img src="../img/111.png" alt="" id="p1"/>
+        <img src="../img/222.png" alt="" id="p2"/>
+        <img src="../img/333.png" alt="" id="p3"/>
+        <img src="../img/444.png" alt="" id="p4"/>
+        <img src="../img/555.png" alt="" id="p5"/>
+        <img src="../img/666.png" alt="" id="p6"/>
+        <img src="../img/777.png" alt="" id="p7"/>
+        <img src="../img/888.png" alt="" id="p8"/>
+        <img src="../img/999.png" alt="" id="p9"/>
+    </div>
+    <div id="content">
+        <div class="k0"></div>
+        <div class="k1"></div>
+        <div class="k2"></div>
+        <div class="k3"></div>
+        <div class="k4"></div>
+        <div class="k5"></div>
+        <div class="k6"></div>
+        <div class="k7"></div>
+        <div class="k8"></div>
+    </div>
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var a,b=0,c=0,d=-200, x,e= 0,z=2;
+        var $k0=$(".k0");
+        for(a=0;a<8;a++){
+            $k0.eq(0).css("background","url('../img/111.png') "+d+'px '+c+"px");
+            $k0.eq(0).clone().appendTo($("#content"));
+            console.log("url('../img/111.png') "+c+'px '+d+"px");
+            d-=200;
+            b++;
+            if(d==-600) {
+                d=0;
+                c-=200;
+            }
+        }
+        $k0.eq(0).css("background","url('../img/111.png') "+0+'px '+0+"px");
+        for(x=0;x<9;x++){
+            e+=0.1;
+            $(".k0").eq(x).css("-webkit-transition","-webkit-transform 0.5s "+e+"s ease");
+            $("#pic img").eq(x).css("-webkit-transition","-webkit-transform 0.5s "+e+"s ease");
+        }
+        $("#pic").on("click",function(){
+            z++;
+            $("#pic img").css("-webkit-transform","rotateY(180deg)");
+            $(".k0").css("-webkit-transform","rotateY(0deg)");
+            $("#content").css("z-index",z);
+        });
+        $(".k0").on("click",function(){
+            z++;
+            $("#pic img").css("-webkit-transform","rotateY(0deg)");
+            $(".k0").css("-webkit-transform","rotateY(180deg)");
+            $("#pic").css("z-index",z);
+        });
+    });
+
+
+
+</script>
+</body>
+</html>

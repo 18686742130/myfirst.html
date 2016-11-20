@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #main{
+            width: 400px;
+            height: 400px;
+            position: relative;
+            margin-left: 80%;
+            margin-top: 30%;
+        }
+        #menu{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            border-radius: 50%;
+            background: url("../img/777.png") 240px -240px;
+            -webkit-transition: -webkit-transform 1.5s ease;
+        }
+        #main span:not(#menu){
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: url("../img/777.png") -130px -240px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <span id="m0"></span>
+    <span id="m1"></span>
+    <span id="m2"></span>
+    <span id="m3"></span>
+    <span id="m4"></span>
+    <span id="menu"></span>
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+//    $(function(){
+//        var x=1,b=0.4;
+//        for(var z=0;z<5;z++){
+//            $("#main div").eq(z).css("-webkit-transition","-webkit-transform 1s "+b+"s linear");
+//            b-=0.1;
+//        }
+//        $("#menu").on("click",function(){
+//            if(x==1){
+//                $("#menu").css("-webkit-transform","rotate(-360deg)");
+//                for(var a=0;a<5;a++){
+//                    $("#main div").eq(a).css("-webkit-transform","rotate("+a*22.5+"deg) translate(-350px) ");
+//                    x=2;
+//                }
+//            }
+//            else if(x==2){
+//                $("#menu").css("-webkit-transform","rotate(0deg)");
+//                for(var b=0;b<5;b++){
+//                    $("#main div").eq(b).css("-webkit-transform","translateX(0) rotate("+(-90)+"deg)");
+//                    x=1;
+//                    console.log(111)
+//                }
+//            }
+//        });
+//        $("#main div:not(#menu)").on("click",function(){
+//            var $this=$(this);
+//            setTimeout(function(){
+//                $this.css("opacity",0);
+//                $this.animate({
+//                    "width":100,
+//                    "height":100,
+//                    "opacity":1
+//                },600);
+//            },600);
+//            $(this).css("opacity",0);
+//            $(this).animate({
+//                "width":150,
+//                "height":150,
+//                "opacity":1
+//            },600);
+//        });
+//    });
+    var oMenu = document.getElementById("menu");
+    var aSpan = document.getElementsByTagName("span");
+    var bFlag = false;
+    for(var a=0;a<aSpan.length-1;a++){
+        aSpan[a].style.WebkitTransition = "-webkit-transform 1s "+(4-a)*0.1+"s ease"
+    }
+    oMenu.onclick = function(){
+        if(!bFlag){
+            oMenu.style.WebkitTransform = "rotate(-360deg)";
+            for(var a=0;a<aSpan.length-1;a++){
+                aSpan[a].style.WebkitTransform = "translate("+(-350*Math.cos(a*22.5*Math.PI/180))+"px,"+(-350*Math.sin(a*22.5*Math.PI/180))+"px) rotate(-360deg)"
+            }
+        }
+//        x:350*Math.cos(i*22.5*Math.PI/180)
+//        y:350*Math.sin(i*22.5*Math.PI/180)
+        else{
+            oMenu.style.WebkitTransform = "rotate(0deg)";
+            for(var i=0;i<aSpan.length-1;i++){
+                aSpan[i].style.WebkitTransitionDuration = "1s";
+                aSpan[i].style.WebkitTransform = " translate(0px,0px) rotate(0deg)";
+            }
+        }
+        bFlag = !bFlag;
+    };
+    for(var j=0;j<aSpan.length-1;j++){
+        aSpan[j].onclick = function(){
+            var nowSpan = this.style.WebkitTransform;
+            this.style.WebkitTransitionDuration = ".3s";
+            this.style.WebkitTransform = nowSpan+" scale(1.5)";
+            this.style.opacity = 0.3;
+            var fun = function(){
+                this.style.WebkitTransform = nowSpan;
+                this.style.opacity = 1;
+                this.removeEventListener("webkitTransitionEnd",fun);
+            };
+            this.addEventListener("webkitTransitionEnd",fun,false);
+        };
+    }
+</script>
+</body>
+</html>

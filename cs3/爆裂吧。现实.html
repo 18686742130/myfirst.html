@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        #main{
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg");
+            position: relative;
+        }
+        .small{
+            width: 125px;
+            height: 125px;
+            margin: 5px;
+            border: 5px solid white;
+            position: absolute;
+            top: -200px;
+            left: -200px;
+            /*-webkit-transition: all 1.5s ease;*/
+        }
+        #main div span{
+            width: 125px;
+            height: 125px;
+            position: absolute;
+            opacity: 0;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <img src="" />
+    </div>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        var index = -1,indexaaa=-1,time=2.4,sm=0;
+        for(var i=0;i<24;i++){
+            var $big = $("<img src='img/"+(i+1)+".jpg' />");
+            $big.load(function(){
+                sm++;
+//                console.log(sm);
+            });
+        }
+        for(var i=0;i<24;i++){
+            var $small = $("<div class='small'><img src='img/thumbs/"+(i+1)+".jpg' /><span></span></div>");
+            $small.appendTo("#main");
+//            $big.appendTo("#main");
+            $small.children("img").load(function(){
+                sm++;
+                if(sm==48){
+                    var x = ($("#main").width()-6*($small.children("img").width()+10))/7;
+                    var y = ($("#main").height()-4*($small.children("img").height()+10))/5;
+                    for(var a=0;a<4;a++){
+                        for(var b=0;b<6;b++){
+                            index++;
+                            time-=0.1;
+                            var rodam=Math.random()*40-20;
+                            $(".small").eq(index).css({
+                                "top":y+(y+$small.children("img").height())*a,
+                                "left":x+(x+$small.children("img").width())*b,
+                                "-webkit-transition":"all 1.5s "+time+"s ease",
+                                "-webkit-transform":"rotate("+rodam+"deg)"
+                            });
+                            $(".small").eq(index).attr({
+                                "xx":x+(x+$small.children("img").width())*b,
+                                "yy":y+(y+$small.children("img").height())*a
+                            });
+                            console.log($("#main").children().eq(index).attr("yy"))
+                        }
+                    }
+                }
+            })
+        }
+        var bFlag = true;
+        $(".small").on("click",function(){
+            if(bFlag){
+                for(var a=0;a<4;a++){
+                    for(var b=0;b<6;b++){
+                        indexaaa++;
+                        $(".small").eq(indexaaa).children("span").css({
+                            "background":"url('img/"+($(this).index())+".jpg') "+(-b*125)+"px "+(-a*125)+"px",
+                            "opacity":1
+                        });$(".small").eq(indexaaa).children("img").hide();
+                        $(".small").eq(indexaaa).css({
+                            "border":"2px solid white",
+                            "-webkit-transition":"all 1.5s ease",
+                            "-webkit-transform":"rotate(0deg)",
+                            "top":($("#main").height()-4*($small.children("img").height()))/2+$small.children("img").height()*a,
+                            "left":($("#main").width()-6*($small.children("img").height()))/2+$small.children("img").width()*b
+                        })
+                    }
+                }
+            }
+
+
+
+
+        })
+
+
+
+
+
+    })
+</script>
+</body>
+</html>

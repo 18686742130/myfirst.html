@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            -webkit-perspective: 1000px;
+        }
+        #hert{
+            width: 400px;
+            height: 400px;
+            margin: 1000px auto;
+            position: relative;
+            -webkit-transform: rotate(45deg);
+            background-color: red;
+            -webkit-animation: big 2s infinite;
+        }
+        @-webkit-keyframes big {
+            0%{
+
+            }
+            100%{
+                -webkit-transform: translateZ(200px) scale(2);
+            }
+        }
+        #hert:before,#hert:after{
+            content: "";
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            position: absolute;
+            background-color: red;
+        }
+        #hert:before{
+            top: 0;
+            left: -50%;
+        }
+        #hert:after{
+            top: -50%;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="hert"></div>
+</body>
+</html>
