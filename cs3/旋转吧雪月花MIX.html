@@ -57,6 +57,9 @@
             $("#content").css("-webkit-transform","rotateY("+c+'deg)');
             console.log(c)
         })
+        setInterval(function(){
+            $("html").trigger("click");
+        },1500)
     })
 </script>
 </body>

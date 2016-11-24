@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<!--<video src="fushanxing.mp4" autoplay="autoplay" controls="controls" loop="loop" ></video>-->
+<!--<audio src="yin1.mp4" autoplay="autoplay" controls="controls"></audio>-->
+
+<script>
+
+
+    var obj = {
+        name:"zxx",
+        age:25
+    };
+    xxx=clone(obj);
+
+    obj.name = "zyy";
+    console.log(xxx);
+
+
+    function clone(obj){
+        var obj1 = {};
+        for( a in obj){
+            if(typeof(obj[a])=="object"){
+                obj1[a] = clone(obj[a])
+            }
+            else{
+                obj1[a] = obj[a];
+            }
+        }
+        return obj1;
+    }
+
+
+</script>
+
+</body>
+</html>
