@@ -1,0 +1,61 @@
+@media (max-width: 960px) {
+    #login{
+        width: 75px;
+        font-size: 14px;
+    }
+
+    #main #a1{
+        padding-top:118% ;
+        background: url("img/liaojie2.jpg") no-repeat;
+        background-size: cover;
+    }
+    #rew {
+        width: 100%;
+        /*padding-top:20% ;*/
+        height: 56px;
+        background: url("img/rew2.jpg") no-repeat left;
+        /*background-size: cover;*/
+    }
+    #login2 a{
+        display: block;
+        margin: 10px;
+    }
+    #login2 h3{
+        color: #ffffff;
+        margin: 10px 0 28px 0;
+    }
+    #content img{
+        width: 80%;
+        position: relative;
+        display: block;
+        bottom: 0;
+        left: 20%;
+    }
+    #content{
+        height: auto;
+    }
+    #contentbab{
+        display: block;
+    }
+    #content p{
+        width: 100%;
+    }
+    #adv div{
+        width: 100%;
+        /*float: none;*/
+    }
+}
+@media (max-width: 480px) {
+    #header{
+        background-size: 18% ;
+    }
+    #b1{
+        display: none;
+    }
+    #b2{
+        display: block;
+        position: absolute;
+        left: 20px;
+        bottom: 20px;
+    }
+}

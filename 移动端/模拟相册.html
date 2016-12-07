@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        body{
+            background: #000;
+        }
+        ul li{
+            float: left;
+            margin:  0 2px 2px 0;
+        }
+        ul li:nth-child(4n){
+            margin-right: 0;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        #big{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="container"></ul>
+    <div id="big"></div>
+<script src="../zepto.min.js"></script>
+<script>
+    $(function(){
+        var $container = $("#container");
+        var $big = $("#big");
+        var $iNow = 0;
+        for(var i=0;i<24;i++){
+            var $li = $("<li><img src='../cs3/img/"+(i+1)+".jpg' /></li>");
+            $li.css({
+                width:($('body').width()-6)/4,
+                height:($('body').width()-6)/4
+            });
+            $container.append($li);
+        }
+        $("li").on("singleTap",function(){
+            $iNow = $(this).index();
+            $container.hide();
+            $big.show().css({
+                background:'url(../cs3/img/'+($iNow+1)+'.jpg) center no-repeat',
+                backgroundSize:'contain'
+            });
+        });
+        $big.on("singleTap",function(){
+            $container.show();
+            $big.hide();
+        }).on("swipeLeft",function(){
+            $iNow++;
+            if($iNow==24) $iNow=0;
+            $big.css({
+                background:'url(../cs3/img/'+($iNow+1)+'.jpg) center no-repeat',
+                backgroundSize:'contain'
+            });
+        }).on("swipeRight",function(){
+            $iNow--;
+            if($iNow==-1) $iNow=23;
+            $big.css({
+                background:'url(../cs3/img/'+($iNow+1)+'.jpg) center no-repeat',
+                backgroundSize:'contain'
+            });
+        })
+    })
+
+</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width , initial-scale=1.0"/>
+    <!--<meta name="viewport"-->
+          <!--content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>-->
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #header{
+            width: 960px;
+            height: 150px;
+            margin: 0 auto;
+            background: yellow;
+            text-align: center;
+        }
+        #menu{
+            width: 960px;
+            height: 150px;
+            margin: 20px auto;
+            background: yellow;
+            text-align: center;
+        }
+        #image{
+            margin: 20px auto;
+            width: 960px;
+            height: 600px;
+            background: url(../cs3/img/1.jpg) no-repeat center ;
+            background-size: cover;
+        }
+        #content{
+            width: 960px;
+            /*height: 300px;*/
+            margin: 20px auto;
+        }
+        #t1,#t2{
+            height: 300px;
+            display: table;
+        }
+        #t1 p,#t2 p{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        #t1{
+            width: 600px;
+            background: red;
+            float: left;
+        }
+        #t2{
+            width: 320px;
+            background: yellow;
+            float: right;
+            margin-bottom: 20px;
+        }
+        #footer{
+            width: 960px;
+            margin: 20px auto;
+            height: 150px;
+            background: blue;
+            clear: both;
+            text-align: center;
+        }
+        @media (max-width:960px){
+            #header,#menu,#footer{
+                width: 100%;
+            }
+            #image{
+                width: 100%;
+                padding-top: 56%;
+                height: 0;
+                background-image: url(../cs3/img/2.jpg)  ;
+            }
+            #content{
+                width: 100%;
+            }
+            #t1{
+                width: 67%;
+            }
+            #t2{
+                width: 30%;
+            }
+        }
+        @media (max-width:480px){
+            #image{
+                width: 100%;
+                /*margintop等  百分比相对于离他最近的块级的祖先元素的宽*/
+                padding-top: 56%;
+                height: 0;
+                background-image: url(../cs3/img/3.jpg)  ;
+            }
+            #t1,#t2{
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header">11111111</div>
+    <div id="menu">111111111111</div>
+    <div id="image"></div>
+    <div id="content">
+        <div id="t1">
+            <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+        </div>
+        <div id="t2">
+            <p>哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈</p>
+        </div>
+    </div>
+    <div id="footer">111111111</div>
+</body>
+</html>

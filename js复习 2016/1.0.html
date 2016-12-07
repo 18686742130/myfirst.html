@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//   1.0
+//    for(var i=0;i<=3;i++){
+//        setTimeout(function(){
+//           console.log(i);
+//        },0)
+//    }
+//   2.0
+//    var a,b;
+//    (function(){
+//        console.log(a);
+//        console.log(b);
+//        var a=b=3;
+//        console.log(a);
+//        console.log(b);
+//    })();
+//    console.log(a);
+//    console.log(b);
+//  排序
+//    function mysort(){
+//        var tags = new Array();
+//        for(var i=0;i<arguments.length;i++){
+//            tags.push(arguments[i]);
+//        }
+//        tags.sort(function(a,b){
+//            return a-b;
+//        });
+//        return tags;
+//    }
+//    var result = mysort(50,11,16,32,24,99,57,100);
+//    console.log(result);
+//   编程1.0
+//    function test(n,m){
+//        var num = [];
+//        for(var i=n;i<m;i++){
+//            var x = i.toString();
+//            var y = "" ;
+//            for(var j=x.length-1;j>-1;j--){
+//                y += x.charAt(j);
+//            }
+//            if(x == y){
+//                num.push(x);
+//            }
+//        }
+//        return num;
+//    }
+//    console.log(test(1,9999 ))
+//编程2.0
+    function  first(str){
+        for(var i=0;i<str.length;i++){
+            var bFlag = true;
+            for(var j=0;j<str.length;j++){
+                if(i==j){
+                    j+=1;
+                }
+                if(str.charAt(i)==str.charAt(j)){
+                    bFlag = false;
+                }
+            }
+            if(bFlag){
+                console.log(str.charAt(i));
+                return false;
+            }
+        }
+    }
+    var str =  "ababdccdeff";
+    first(str);
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

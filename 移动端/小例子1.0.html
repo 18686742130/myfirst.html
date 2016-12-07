@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=yes, initial-scale=1.0"/>
+    <title></title>
+    <style>
+        /*此版本有很多错误*/
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        #main{
+            width: 980px;
+            margin: 0 auto;
+        }
+        #header{
+            width: 100%;
+            height: 150px;
+            background: #eeeeee;
+        }
+        #menu{
+            margin-top: 20px;
+            width: 100%;
+            height: 150px;
+            background: #eeeeee;
+        }
+        #image{
+            margin-top: 20px;
+            width: 100%;
+            padding-top: 56%;
+            background: url("../cs3/img/1.jpg") center no-repeat;
+            background-size: cover;
+        }
+        #content{
+            /*margin-top: 20px;*/
+            width: 980px;
+            margin: 0 auto;
+        }
+        #t1, #t2{
+            height: 300px;
+            display: table;
+        }
+        #t1 p, #t2 p{
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+        #t1{
+            width: 600px;
+            background: yellow;
+            float: left;
+        }
+        #t2 {
+            width: 300px;
+            background: red;
+            float: right;
+        }
+        #footer{
+            margin-top: 20px;
+            width: 100%;
+            height: 150px;
+            background: black;
+        }
+        @media (max-width: 960px) {
+            #main{
+                width: 100%;
+            }
+            #image {
+                background-image: url("../cs3/img/2.jpg");
+            }
+        }
+        @media (max-width: 480px) {
+            #image  {
+                background-image: url("../cs3/img/3.jpg");
+            }
+            #t1 p {
+                width: 100%;
+                float: none;
+            }
+            #t2 p {
+                margin-left: 0;
+                margin-top: 1%;
+                width: 100%;
+                float: none;
+            }
+        }
+    </style>
+    <!--/*此版本有很多错误*/-->
+</head>
+<body>
+    <div id="main">
+          <div id="header"></div>
+          <div id="menu"></div>
+          <div id="image"></div>
+          <div id="content">
+              <div id="t1"><p>qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</p></div>
+              <div id="t2"><p>qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq</p></div>
+          </div>
+          <div id="footer">
+
+          </div>
+    </div>
+</body>
+</html>

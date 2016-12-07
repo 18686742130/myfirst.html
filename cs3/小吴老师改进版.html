@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #container{
+            width: 750px;
+            height: 500px;
+            margin: 120px auto;
+            position: relative;
+        }
+        #container div{
+            width: 125px;
+            height: 125px;
+            position: absolute;
+            backface-visibility: hidden;
+        }
+        #btn{
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            margin-left: -25px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+
+    </div>
+    <div id="btn">
+        <button id="fan">翻转</button>
+        <button id="zha">爆炸</button>
+    </div>
+    <script>
+        var oContainer = document.getElementById("container");
+        var oFan = document.getElementById("fan");
+        var oZha = document.getElementById("zha");
+        var iNow = 0;
+        oContainer.style.background = 'url(img/1.jpg)';
+        for(var i=0;i<4;i++){
+            for(var j=0;j<6;j++){
+                var oDiv = document.createElement("div");
+                oDiv.style.left = j*125+"px";
+                oDiv.style.top = i*125+"px";
+                oDiv.style.backgroundPosition = ""+(-j*125)+"px "+(-i*125)+"px";
+                oDiv.style.WebkitTransform = 'rotateY(180deg)';
+                oContainer.appendChild(oDiv);
+            }
+        }
+        var aDiv = oContainer.getElementsByTagName("div");
+
+        oFan.onclick = function(){
+            fan();
+        };
+        oZha.onclick = function(){
+            zha();
+        };
+        function fan(){
+            iNow++;
+            if(iNow==5){
+                iNow=0;
+            }
+            var index=0;
+            var timer = setInterval(function(){
+                aDiv[index].style.WebkitTransition = 'all 0.8s ease';
+                aDiv[index].style.backgroundImage = "url(img/"+(iNow+1)+".jpg)";
+                aDiv[index].style.WebkitTransform = 'rotateY(0deg)';
+                index++;
+                if(index==24) clearInterval(timer);
+            },50);
+            aDiv[23].addEventListener("transitionend",function(){
+                oContainer.style.background = "url(img/"+(iNow+1)+".jpg)";
+                for(var i=0;i<24;i++){
+                    aDiv[i].style.WebkitTransition = '';
+                    aDiv[i].style.WebkitTransform = 'rotateY(180deg)';
+//                    aDiv[i].style.opacity = 1;
+                }
+            },false);
+        }
+        function zha(){
+            var index=0;
+            iNow++;
+            for(var i=0;i<24;i++){
+                aDiv[i].style.WebkitTransform = '';
+                aDiv[i].style.backgroundImage = "url(img/"+iNow+".jpg)";
+            }
+            if(iNow==5){
+                iNow=0;
+            }
+            oContainer.style.background = "url(img/"+(iNow+1)+".jpg)";
+            var timer = setInterval(function(){
+                aDiv[index].style.WebkitTransition = 'all 1s ease';
+                aDiv[index].style.WebkitTransform = 'translate('+(Math.random()*300-150)+'px,'+(Math.random()*300-150)+'px) scale(1.5) rotateY(360deg) ';
+                aDiv[index].style.opacity = 0;
+                index++;
+                if(index==24) clearInterval(timer);
+            },20);
+            aDiv[23].addEventListener("transitionend",function(){
+                for(var i=0;i<24;i++){
+                    console.log(22222);
+                    aDiv[i].style.WebkitTransition = '';
+                    aDiv[i].style.WebkitTransform = 'rotateY(180deg)';
+                    aDiv[i].style.opacity = 1;
+                }
+            },false);
+        }
+    </script>
+</body>
+</html>

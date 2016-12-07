@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        #content{
+            width: 100%;
+            height: 100%;
+            /*-webkit-perspective: 800px;*/
+        }
+        #main{
+            width: 750px;
+            height: 500px;
+            margin-top: 100px;
+            margin-left: 50%;
+            -webkit-transform:translate(-50%);
+            /*-webkit-transform-style: preserve-3d;*/
+        }
+        #fan{
+            margin-top: 50px;
+            margin-left: 50%;
+            -webkit-transform:translate(-50%);
+        }
+        .small{
+            width: 125px;
+            height: 125px;
+            position: absolute;
+            /*-webkit-transform-style: preserve-3d;*/
+        }
+        .small span{
+            width: 125px;
+            height: 125px;
+            backface-visibility: hidden;
+            position: absolute;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="content">
+    <div id="main"></div>
+    <div>
+        <button id="fan">翻转</button>
+        <button id="boom">爆炸</button>
+    </div>
+</div>
+<script src="../jquery-1.12.4.js"></script>
+<script>
+    $(function(){
+        //封装方法
+        var sum= 0,z0= 0,z1= 1,x= 2,asd= 0,zin=1;
+        var index=0;
+        //爆炸
+        function boom(){
+            var qwe;
+            zin++;
+            x++;
+            if(x==25) x=1;
+            for(var a=0;a<4;a++){
+                for(var b=0;b<6;b++){
+                    var ran=Math.random()*600-300;
+
+                    $(".small").eq(index).children().eq(z1).css({  //2 1
+                        "-webkit-transform":""
+                    });
+                    $(".small").eq(index).children().eq(z0).css({
+                        "-webkit-transition":"all 1.3s "+Math.random()*0.5+"s ease",
+                        "-webkit-transform":'translate('+ran+'px,'+ran+'px) rotateY(360deg) scale(2)',
+                        "opacity":0
+                    });
+                    index++;
+                }
+            }
+            setTimeout(function(){
+                var er=0;
+                for(var a=0;a<4;a++){
+                    for(var b=0;b<6;b++){
+                        $(".small").eq(er).children().eq(z1).css({  //2 1
+                            "-webkit-transform":"",
+                            "z-index":zin
+                        });
+                        $(".small").eq(er).children().eq(z0).css({
+                            "-webkit-transition":"",
+                            "background":"url('img/"+x+".jpg') "+(-b*125)+"px "+(-a*125)+"px",
+                            "opacity":1,
+                            "-webkit-transform":"rotateY(180deg)"
+                        });
+                        er++;
+                    }
+                }
+                qwe=z0;
+                z0=z1;
+                z1=qwe;
+            },1500);
+            index=0;
+        }
+        //翻转
+        function fanzhuan(){
+            var qwe;
+            zin++;
+            x++;
+            if(x==25) x=1;
+            for(var a=0;a<4;a++){
+                for(var b=0;b<6;b++){
+                    $(".small").eq(index).children().eq(z1).css({  //2 1
+                        "-webkit-transition":"transform 1s "+index*0.03+"s ease",
+                        "-webkit-transform":"rotateY(0deg)",
+                        "z-index":zin
+                    });
+                    index++;
+                }
+            }
+            setTimeout(function(){
+                var er=0;
+                for(var a=0;a<4;a++){
+                    for(var b=0;b<6;b++){
+                        $(".small").eq(er).children().eq(z0).css({
+                            "-webkit-transition":"",
+                            "background":"url('img/"+x+".jpg') "+(-b*125)+"px "+(-a*125)+"px",
+                            "-webkit-transform":"rotateY(180deg)"
+                        });
+                        er++;
+                    }
+                }
+                qwe=z0;
+                z0=z1;
+                z1=qwe;
+            },1500);
+            index=0;
+        }
+        //插入图片
+        for(var i=0;i<4;i++){
+            for(var j=0;j<6;j++){
+                asd++;
+                var $img=$("<img src='img/"+asd+".jpg'/>");
+                var $div = $("<div class='small'><span></span><span></span></div>");
+                $div.css({
+                    "top":i*125,
+                    "left":j*125
+                });
+                $div.appendTo($("#main"));
+                $img.load(function(){
+                    sum++;
+                    if(sum==24){
+                        for(var a=0;a<4;a++){
+                            for(var b=0;b<6;b++){
+                                $(".small").eq(index).children().eq(0).css({
+                                    "background":"url('img/1.jpg') "+(-b*125)+"px "+(-a*125)+"px",
+                                    "z-index":1
+                                });
+                                $(".small").eq(index).children().eq(1).css({
+                                    "background":"url('img/2.jpg') "+(-b*125)+"px "+(-a*125)+"px",
+                                    "-webkit-transform":"rotateY(180deg)"
+                                });
+                                index++;
+                            }
+                        }
+                        index=0;
+                    }
+                })
+            }
+        }
+        //点击调用
+        $("#fan").on("click",function(){
+            fanzhuan();
+        });
+        $("#boom").on("click",function(){
+            boom();
+        });
+    })
+</script>
+</body>
+</html>
