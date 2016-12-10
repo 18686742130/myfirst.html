@@ -9,13 +9,13 @@
     <title></title>
     <style>
         #menu-child{
-            overflow: auto;
-            width: 270px;
+            width: 0;
             height: 794px;
             background: #494949;
             position: absolute;
             top: 0;
             left: 0;
+            overflow: auto;
         }
         #menu-child a{
             font-size: 25px;
@@ -23,6 +23,8 @@
             display: block;
             padding: 20px;
             cursor: pointer;
+            width: 210px;
+            height: 30px;
         }
         #menu-child a:nth-child(2){
             border-bottom: 1px solid saddlebrown;
@@ -32,10 +34,12 @@
             cursor: pointer;
             margin: 20px 0 0 20px;
             font-size: 18px;
-            color: #ffffff;
+            color: #9d9d9d;
             font-family: "Microsoft YaHei";
+            width: 210px;
+            /*height: 30px;*/
         }
-        #menu-child li ul{
+        .xx ul{
             display: none;
         }
 
@@ -141,7 +145,8 @@
                     <li class="zz">星巴克</li>
                 </ul>
             </li>
-            <li class="xx">星象俱乐部
+            <li class="xx">
+                星象俱乐部
                 <ul>
                     <li class="zz">星巴克</li>
                     <li class="zz">星巴克</li>
@@ -173,18 +178,37 @@
     <script src="../../jquery-1.12.4.js"></script>
     <script>
         $(function(){
-            $("#menu-child ul").children().on("click",function(){
+            $("#menu").on("click",function(){
+                $("#menu-child").animate({
+                    width:270
+                },500);
+                return false;
+            });
+            var Shou = function(){
+                $("#menu-child").animate({
+                    width:0
+                },500);
+                return false;
+            };
+            $("#main").on("click",function(){
+                Shou();
+            });
+            $("#header").on("click",function(){
+                Shou();
+            });
+
+            $(".xx").on("click",function(){
                     $(this).children().animate({
                         height:'toggle'
                     },500);
-                console.log($("#menu-child").height())
-            })
-            $(".xx").on("mouseenter",function(){
+            });
+            $("li").on("mouseenter",function(){
+//                var tar = e.target || window.event.srcElement;
                 $(this).css("color",'saddlebrown');
                 return false;
             }).on("mouseleave",function(){
-                $(this).css("color",'#ffffff');
-                return false;
+                $(this).css("color",'#9d9d9d');
+//                return false;
             })
 
 

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function getClassName(cls){
+        if(document.getElementsByClassName(cls)){
+            return document.getElementsByClassName(cls);
+        }
+        else{
+            var result = [];
+            var all =document.getElementsByTagName('*');
+            var reg = new RegExp("\\b"+cls+"\\b");
+            for(var i=0;i<all.length;i++){
+                reg.text(all[i].className)
+
+            }
+
+
+
+            return result;
+        }
+
+
+
+
+    }
+
+
+
+</script>
+</body>
+</html>
