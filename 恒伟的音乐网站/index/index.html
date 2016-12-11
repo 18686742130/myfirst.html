@@ -3,8 +3,119 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="css/init.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
 </head>
 <body>
+    <div id="main">
+        <div id="header">
+            <a href="#"><img src="img/logo4.png" /></a>
+            <p>音乐发布、微博、空间的某某系统</p>
+        </div>
+        <div id="menu">
+            <ul id="menu-child">
+                <li><a href="#">首页</a></li>
+                <li><a href="#">精彩时刻</a></li>
+                <li><a href="#">微博</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">友情链接</a></li>
+            </ul>
+        </div>
+        <!--轮播图,960,320-->
+        <div id="pic">
+            <div id="pic-left"></div>
+            <div id="pic-content">
+                <img src="img/5.jpg" alt=""/>
+                <img src="img/3.jpg" alt=""/>
+                <img src="img/2.jpg" alt=""/>
+                <img src="img/1.jpg" alt=""/>
+                <img src="img/4.jpg" alt=""/>
+                <img src="img/5.jpg" alt=""/>
+                <img src="img/3.jpg" alt=""/>
+            </div>
+            <div id="pic-right"></div>
+            <div id="pic-btn">
+                <span class="prev">&lt;</span>
+                <span class="next">&gt;</span>
+            </div>
+            <div id="pic-index">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+        <!--MUSIC-->
+        <div id="music">
+            <img src="img/music.png" alt=""/>
+            <p id="music-main">每一个作品都像我们的孩子！每一个音乐作品的产生，要历经过多次的自我争执！每一首音乐作品的背后都有一个故事，欢喜亦或忧伤！有时纠结于一个音符，有时纠结于一件配器……和自己的较劲只希望能创作出触动人心的作品。</p>
+            <img src="img/music2.png" alt=""/>
+            <div id="music-content">
+                <audio id="shen" src="mp3/1.mp3"></audio>
+                <div id="bg"></div>
+                <div id="music-btn">
+                    <span id="play-pause" class="play"></span>
+                </div>
+                <div id="message">
+                    <p>神的随波逐流</p>
+                    <p>简介</p>
+                </div>
+            </div>
+            <div id="small-music">
+            <ul>
+                <li>
+                    <div class="con">
+                        <div></div>
+                        <p>神的随波逐流</p>
+                        <span class="play"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="con">
+                        <div></div>
+                        <p>极乐净土</p>
+                        <span class="play"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="con">
+                        <div></div>
+                        <p>独家记忆</p>
+                        <span class="play"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="con">
+                        <div></div>
+                        <p>回忆沙漠</p>
+                        <span class="play"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="con">
+                        <div></div>
+                        <p>你还要我怎样</p>
+                        <span class="play"></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="con">
+                        <div></div>
+                        <p>海海海</p>
+                        <span class="play"></span>
+                    </div>
+                </li>
+            </ul>
+            </div>
+        </div>
 
+
+
+    </div>
+    <script src="js/jquery-1.12.4.js" ></script>
+    <script src="js/index.js"></script>
 </body>
 </html>

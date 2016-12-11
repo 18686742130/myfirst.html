@@ -1,0 +1,183 @@
+/*轮播图*/
+#pic{
+    width: 100%;
+    height: 320px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+#pic-content{
+    width: 6720px;
+    height: 320px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#pic-content img{
+    float: left;
+}
+#pic-left{
+    height: 320px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #000000;
+    opacity: 0.6;
+    z-index: 2;
+}
+#pic-right{
+    height: 320px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: #000000;
+    opacity: 0.6;
+    z-index: 2;
+}
+#pic-index ul{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -25px;
+}
+#pic-index ul li{
+    float: left;
+    width: 10px;
+    height: 10px;
+    border: 3px solid black;
+    background: #00ffff;
+    border-radius: 50%;
+    opacity: 0.5;
+    cursor: pointer;
+}
+#pic-index ul li:hover {
+    background: #ffffff;
+}
+#pic-btn{
+    display: none;
+}
+#pic-btn span{
+    cursor: pointer;
+    text-align: center;
+    line-height: 60px;
+    width: 40px;
+    height: 60px;
+    background: #494949;
+    border-radius:  0 20% 20% 0;
+    position: absolute;
+    top: 130px;
+    color: #ffffff;
+    font-size: 50px;
+    opacity: 0.5;
+}
+#pic-btn span:hover{
+    background: #00ffff;
+}
+/*MUSIC*/
+#music{
+    margin-bottom: 10px;
+    opacity: 0.8;
+    background: #272f31;
+    width: 100%;
+    height: 500px;
+    position: relative;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#music-main{
+    margin-left: 20%;
+    width: 60%;
+    color: #ffffff;
+    font-size: 16px;
+}
+#music-content{
+    /*float: left;*/
+    width: 300px;
+    height: 300px;
+    position: relative;
+    background: #ffffff;
+    margin-bottom: 10px ;
+    margin-left: 80px;
+}
+#music-content:hover{
+    background: #00ffff;
+    color: #ffffff;
+}
+#bg{
+    width: 100%;
+    height: 225px;
+    /*position: absolute;*/
+    background: black url("../img/lufei.jpeg") no-repeat;
+    background-size: contain ;
+}
+#music-btn{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+#play-pause{
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.play{
+    background: url("../img/bofang.png") no-repeat;
+}
+.pause{
+    background: url("../img/zanting.png") no-repeat;
+}
+#message{
+    position: absolute;
+    bottom: 20px;
+    left: 120px;
+}
+#small-music{
+    width: 900px;
+    height: 300px;
+    /*background: #ffffff;*/
+    /*float: left;*/
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+.con {
+    float: left;
+    position: relative;
+    width: 350px;
+    height: 80px;
+    background: #ffffff;
+    margin: 0 80px 20px 0 ;
+    line-height: 80px;
+}
+.con:hover{
+    background: #00ffff;
+    color: #ffffff;
+}
+#small-music li div div{
+    width: 80px;
+    height: 80px;
+    background: url("../img/lufei.jpeg") ;
+    background-size: contain ;
+}
+#small-music li div p{
+    position: absolute;
+    top:4px;
+    left: 120px;
+    /*width: 150px;*/
+    /*height: 80px;*/
+}
+#small-music li div span{
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+
