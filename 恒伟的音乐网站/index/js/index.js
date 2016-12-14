@@ -25,6 +25,7 @@ $(function(){
         if($index == 5) {
             $index = 0;
         }
+        $("#pic li").eq($index).addClass("ff").siblings().removeClass();
         $("#pic-content").stop().animate({
             left:left-960*$index
         },1000);
@@ -57,11 +58,20 @@ $(function(){
         }
     });
     function play(){
+        var sss = 'mp3/1.mp3';
+        $("#shen").attr("src",sss);
         myAudio.play();
         $("#play-pause").removeClass().addClass('pause');
     }
     function pause(){
         myAudio.pause();
         $('#play-pause').removeClass().addClass('play');
+    }
+    for(var i=0;i<6;i++){
+        var src = "t"+i;
+        $(".con").eq(i).children('div').css({
+            "background":'url(img/'+src+'.jpg) no-repeat',
+            'background-size':'80px 80px'
+        })
     }
 });

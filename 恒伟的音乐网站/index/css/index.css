@@ -1,5 +1,6 @@
 /*轮播图*/
 #pic{
+    opacity: 0.8;
     width: 100%;
     height: 320px;
     position: relative;
@@ -50,7 +51,7 @@
     opacity: 0.5;
     cursor: pointer;
 }
-#pic-index ul li:hover {
+#pic-index ul .ff {
     background: #ffffff;
 }
 #pic-btn{
@@ -69,6 +70,9 @@
     color: #ffffff;
     font-size: 50px;
     opacity: 0.5;
+}
+#pic-btn .next{
+    border-radius:   20% 0 0 20% ;
 }
 #pic-btn span:hover{
     background: #00ffff;
@@ -130,14 +134,17 @@
 }
 #message{
     position: absolute;
-    bottom: 20px;
+    bottom: 15px;
     left: 120px;
 }
+#message p{
+    font-weight: 600 ;
+    margin-top: 5px;
+}
 #small-music{
+    opacity: 0.8;
     width: 900px;
     height: 300px;
-    /*background: #ffffff;*/
-    /*float: left;*/
     position: absolute;
     bottom: 20px;
     right: 20px;
@@ -155,18 +162,15 @@
     background: #00ffff;
     color: #ffffff;
 }
-#small-music li div div{
+.con div{
     width: 80px;
     height: 80px;
-    background: url("../img/lufei.jpeg") ;
-    background-size: contain ;
 }
 #small-music li div p{
+    font-weight: 600;
     position: absolute;
     top:4px;
     left: 120px;
-    /*width: 150px;*/
-    /*height: 80px;*/
 }
 #small-music li div span{
     position: absolute;
