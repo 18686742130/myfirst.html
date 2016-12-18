@@ -8,11 +8,10 @@ a {
   text-decoration: none;
 }
 #nav{
-  background: #eeeeee;
+  /*background: #cccccc;*/
+  overflow: hidden;
 }
+
 #login{
   float: right;
-}
-p{
-  font-size: 30px;
 }
