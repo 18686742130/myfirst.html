@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<div id="d">
+    <p v-bind:style="{color:ccc,'font-size':ddd}">2222222</p>
+    <p v-bind:style="[aaa,bbb]">2222222</p>
+    <p v-bind:style="objstyle">2222222</p>
+    <span v-on:click="boom">boom</span>
+</div>
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#d",
+        data:{
+            ccc:"red",
+            ddd:'40px',
+            aaa:{
+                color:"red"
+            },
+            bbb:{
+              'font-size':'40px'
+            },
+            objstyle:{
+                color:"red",
+                'font-size':"40px"
+            }
+        },
+        methods:{
+            boom:function(){
+                alert(event.target.tagName);
+            }
+        }
+
+    });
+
+</script>
+</body>
+</html>

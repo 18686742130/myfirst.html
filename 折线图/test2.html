@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        html{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            width: 100%;
+            height: 100%;
+        }
+        #main{
+            width: 100%;
+            height: 100%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div id="main"></div>
+<script src="echarts.js"></script>
+
+<script>
+    var myChart = echarts.init(document.getElementById('main'));
+    var params=[0,1];
+    option = {
+        title: {
+            text: ""
+        },
+        tooltip : {
+            triggerOn:"mousemove",
+            trigger: 'axis',
+            formatter: '{b}:{c}'
+        },
+        grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+        },
+        xAxis : [
+            {
+                type : 'category',
+                boundaryGap : false,
+                data : ['周一','周二','周三','周四','周五','周六','周日']
+            }
+        ],
+        yAxis : [
+            {
+                type : 'value'
+            }
+        ],
+        series : [
+            {
+                name:'价格',
+                type:'line',
+                symbol:"none",
+                stack: '总量',
+                label: {
+                    normal: {
+                        show: false,
+                        position: 'bottom'
+                    }
+                },
+                itemStyle:{
+                  normal:{
+                      lineStyle:{
+                          color:"#000"
+                          //折线颜色
+                      }
+                  }
+                },
+                areaStyle: {normal: {
+                    color:"#ffff00"
+                    //折线下面区域颜色
+                }},
+                data:[820, 932, 901, 934, 1290, 1330, 1320,1100,1000,1250,1320,1330,1200,1100]
+            }
+        ]
+    };
+    myChart.showLoading();    //数据加载完之前先显示一段简单的loading动画
+    // 为echarts对象加载数据
+    myChart.setOption(option);
+    myChart.hideLoading();    //隐藏加载动画
+
+</script>
+</body>
+</html>

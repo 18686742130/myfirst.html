@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<input id="group_MaxMember" type="text"  />
+
+<script>
+
+    var oGroup_MaxMember = document.getElementById("group_MaxMember");
+    var req = /^\d{1,10}$/;
+    oGroup_MaxMember.onblur = function(){
+        var val = oGroup_MaxMember.value;
+        if(!req.test(val)){
+            oGroup_MaxMember.value = val.substring(0,11);
+            alert("字数超出限制或输入了非数字");
+        }
+    };
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #d{
+            width: 300px;
+            height: 300px;
+            margin: 200px auto;
+        }
+    </style>
+</head>
+<body>
+        <div id="d">
+            <ul >
+                <li  v-for="x in sp" v-bind:style="x.style" v-on:click="dian(x)" >
+                    {{x.name}}<span v-bind:style="show">{{x.show}}</span>
+                </li>
+            </ul>
+            <div style="width:300px;height:5px;background:#00ffff;margin:0 0 10px 40px"></div>
+            <span style="margin-left: 40px;">total</span><span style="margin-left: 40px;float:right">{{total | currency}}</span>
+        </div>
+        <script src="vue.js"></script>
+        <script>
+            var vm = new Vue({
+               el:"#d",
+                data:{
+                    show:{
+                        float:'right'
+                    },
+                    total:0,
+                    sp:[{name:'aaa',show:444,flag:true,style:{
+                        width:'300px',
+                        height:'60px',
+                        background:'#00ffff',
+                        'line-height':'60px',
+                        display:'block',
+                        'list-style':"none",
+                        'margin-bottom':'10px',
+                        color:'white',
+                        'font-size':'20px'
+                    }},{name:'bbb',show:666,flag:true,style:{
+                        width:'300px',
+                        height:'60px',
+                        background:'#00ffff',
+                        'line-height':'60px',
+                        display:'block',
+                        'list-style':"none",
+                        'margin-bottom':'10px',
+                        color:'white',
+                        'font-size':'20px'
+                    }},{name:'ccc',show:333,flag:true,style:{
+                        width:'300px',
+                        height:'60px',
+                        background:'#00ffff',
+                        'line-height':'60px',
+                        display:'block',
+                        'list-style':"none",
+                        'margin-bottom':'10px',
+                        color:'white',
+                        'font-size':'20px'
+                    }},{name:'ddd',show:888,flag:true,style:{
+                        width:'300px',
+                        height:'60px',
+                        background:'#00ffff',
+                        'line-height':'60px',
+                        display:'block',
+                        'list-style':"none",
+                        'margin-bottom':'10px',
+                        color:'white',
+                        'font-size':'20px'
+                    }},{name:'eee',show:111,flag:true,style:{
+                        width:'300px',
+                        height:'60px',
+                        background:'#00ffff',
+                        'line-height':'60px',
+                        display:'block',
+                        'list-style':"none",
+                        'margin-bottom':'10px',
+                        color:'white',
+                        'font-size':'20px'
+                    }}]
+                },
+                methods:{
+                    dian:function(x){
+                        if(x.flag){
+                            x.style.background="red";
+                            this.total += x.show;
+                        }else{
+                            x.style.background="#00ffff";
+                            this.total -= x.show;
+                        }
+                        x.flag = !x.flag;
+                    }
+                }
+            });
+        </script>
+</body>
+</html>
