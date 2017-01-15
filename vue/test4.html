@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="a">
+    <myone v-bind:flag="x"></myone>
+</div>
+
+<script src="vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#a",
+        data:{
+            x:"111"
+        },
+        components:{
+            'myone':{
+                template:'<div>A bich is fat {{flag}}</div>',
+                props:['flag']
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
