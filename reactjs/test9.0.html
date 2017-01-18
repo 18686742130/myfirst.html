@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+        <div id="app"></div>
+
+        <script src="react.js"></script>
+        <script src="react-dom.js"></script>
+        <script src="browser.js"></script>
+
+        <script type="text/babel">
+            var Vvv = React.createClass({
+               componentDidMount:function(){
+                   this.refs.aaa.focus();
+               },
+               render:function(){
+                   return (
+                           <input type="text" ref="aaa" />
+                   )
+               }
+            });
+            ReactDOM.render(<Vvv/>,document.getElementById('app'));
+        </script>
+</body>
+</html>

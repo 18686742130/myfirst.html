@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+        <div id="app"></div>
+
+        <script src="react-with-addons.js"></script>
+        <script src="react-dom.js"></script>
+        <script src="browser.js"></script>
+
+        <script type="text/babel">
+//            双向绑定
+            var Ooxx = React.createClass({
+                mixins:[React.addons.LinkedStateMixin],
+                getInitialState:function(){
+                    return {
+                        data:""
+                    }
+                },
+                render:function(){
+                    return (
+                            <div>
+                                <input type="text" valueLink={this.linkState("data")} />
+                                <h1>{this.state.data}</h1>
+                            </div>
+                    );
+                }
+            });
+            ReactDOM.render(<Ooxx/>,document.getElementById("app"));
+        </script>
+</body>
+</html>
